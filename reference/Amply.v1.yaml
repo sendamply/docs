@@ -1,0 +1,256 @@
+openapi: 3.0.0
+info:
+  title: Amply v1 API Documentation
+  version: '1.0'
+  contact:
+    name: Support
+    url: 'https://sendamply.com/support'
+    email: support@sendamply.com
+  termsOfService: 'https://sendamply.com/terms'
+  description: The Amply v1 API Documentation
+servers:
+  - url: 'https://sendamply.com/api/v1'
+paths:
+  /email:
+    post:
+      summary: Send email
+      tags:
+        - email
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                          description: The field in the request body that is incorrect.
+                        message:
+                          type: string
+                          description: A description of what is wrong with the field passed into the request.
+                      required:
+                        - message
+                required:
+                  - errors
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                          description: The field in the request body that is incorrect.
+                        message:
+                          type: string
+                          description: A description of what is wrong with the field passed into the request.
+                      required:
+                        - message
+                required:
+                  - errors
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                          description: The field in the request body that is incorrect.
+                        message:
+                          type: string
+                          description: A description of what is wrong with the field passed into the request.
+                      required:
+                        - message
+                required:
+                  - errors
+      operationId: post-email
+      description: "This endpoint lets you send email over Amply's Web API."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                recipients:
+                  type: array
+                  description: 'An array of recipients that may be included in the to, cc, and bcc fields.'
+                  items:
+                    type: object
+                    properties:
+                      to:
+                        type: array
+                        description: An array of recipients.
+                        items:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              example: example@example.com
+                            name:
+                              type: string
+                              description: The name of the person or organization that is receiving the email.
+                          required:
+                            - email
+                      cc:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              example: example@example.com
+                            name:
+                              type: string
+                              description: The name of the person or organization that is receiving the email.
+                      bcc:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            email:
+                              type: string
+                              example: example@example.com
+                            name:
+                              type: string
+                              description: The name of the person or organization that is receiving the email.
+                      subject:
+                        type: string
+                        description: The subject of your email.
+                      headers:
+                        type: object
+                        description: 'A collection of JSON key/value pairs that will be inserted as headers in your email.  You may not overwrite the following headers: dkim-signature, Content-Type, Content-Transfer-Encoding, To, From, Subject, Reply-To, CC, BCC, Feedback-ID, X-Feedback-ID.'
+                      substitutions:
+                        type: object
+                        description: 'A collection of key/value pairs following the pattern "substitution_tag":"value to substitute". The key/value pairs must be strings. These subsitutions will apply to the text and html content of the email body, as well as the subject.'
+                    required:
+                      - to
+                from:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      example: example@example.com
+                    name:
+                      type: string
+                      description: The name of the person or organization that is sending the email.
+                  required:
+                    - email
+                reply_to:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      example: example@example.com
+                    name:
+                      type: string
+                      description: The name of the person or organization that will receive a reply.
+                subject:
+                  type: string
+                  description: 'The subject of your email. This may be overriden by recipients[x].subject'
+                content:
+                  type: array
+                  minItems: 1
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        description: The mime type of the content that you are including in your email.
+                        example: text/html
+                      value:
+                        type: string
+                        description: The actual content of the specified mime type that you are including in your email.
+                    required:
+                      - type
+                      - value
+                attachments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      content:
+                        type: string
+                        description: The Base64 encoded content of the attachment.
+                      type:
+                        type: string
+                        description: The mime type of the content you are attaching.
+                      filename:
+                        type: string
+                        description: The filename of the attachment.
+                      disposition:
+                        type: string
+                        description: 'The content-disposition of the attachment specifying how you would like the attachment to be displayed. For example, “inline” results in the attached file being displayed automatically within the message while “attachment” results in the attached file requiring some action to be taken before it is displayed (e.g. opening or downloading the file).'
+                        pattern: 'inline|attachment'
+                      content_id:
+                        type: string
+                        description: 'The content id for the attachment. This is used when the disposition is set to “inline” and the attachment is an image, allowing the file to be displayed within the body of your email.'
+                    required:
+                      - content
+                      - filename
+                template_id:
+                  description: The id of a template that you would like to use.
+                  type: integer
+                headers:
+                  type: object
+                  description: |-
+                    A collection of JSON key/value pairs that will be inserted as headers in your email.  You may not overwrite the following headers: dkim-signature, Content-Type, Content-Transfer-Encoding, To, From, Subject, Reply-To, CC, BCC, Feedback-ID, X-Feedback-ID.
+
+                    Headers may be overwritten by This may be overriden by recipients[x].headers[y]
+                unsubscribes:
+                  type: object
+                  description: How unsubscribe tags will be handled in your email.
+                  properties:
+                    unsubscribe_group_id:
+                      type: integer
+                      description: The unsubscribe group id that a user will subscribe/unsubscribe from.
+                ip_pool_id:
+                  type: integer
+                  description: The id of the IP Pool to send this email from.
+                analytics:
+                  type: object
+                  properties:
+                    level:
+                      type: string
+                      pattern: 'none|user'
+                      description: 'The analytics level for your email. Default is *user*.'
+                    categories:
+                      type: array
+                      description: An array of category names to associate with this email.
+                      items:
+                        type: string
+              required:
+                - recipients
+                - subject
+                - content
+            examples:
+              example-1: {}
+        description: ''
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes:
+    Access Key:
+      type: http
+      scheme: bearer

@@ -247,7 +247,131 @@ paths:
             examples:
               example-1: {}
         description: ''
+      security:
+        - Access Key: []
     parameters: []
+  '/analytics/visualizations/{id}':
+    parameters:
+      - schema:
+          type: integer
+        name: id
+        in: path
+        required: true
+        description: The id of the visualization.
+    get:
+      summary: Get a visualization
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: get-analytics-visualizations-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  description: Use filters to refine the data that the visualization shows.
+                  properties:
+                    start:
+                      type: string
+                      description: 'The start date time formatted as an iso8601 string.'
+                    end:
+                      type: string
+                      description: 'The end date time formatted as an iso8601 string.'
+                    recipients:
+                      type: array
+                      description: 'Recipients of an email. This includes recipients in the to, cc, and bcc fields.'
+                      items: {}
+                    from:
+                      type: object
+                      description: The sender of email.
+                      properties:
+                        email:
+                          type: string
+                        name:
+                          type: string
+                          description: The name of the person or organization that is sending the email.
+                    location:
+                      type: object
+                      properties:
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        country:
+                          type: string
+            examples:
+              example-1: {}
+        description: ''
+      description: Return an iframe with your visualization.
+      security:
+        - Access Key: []
+  '/analytics/visualizations/presets/{preset-name}':
+    parameters:
+      - schema:
+          type: string
+        name: preset-name
+        in: path
+        required: true
+        description: The preset name of the visualization.
+    get:
+      summary: Get a preset visualization
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Not Found
+      operationId: get-analytics-visualizations-presets-preset-name
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                filters:
+                  type: object
+                  description: Use filters to refine the data that the visualization shows.
+                  properties:
+                    start:
+                      type: string
+                      description: 'The start date time formatted as an iso8601 string.'
+                    end:
+                      type: string
+                      description: 'The end date time formatted as an iso8601 string.'
+                    recipients:
+                      type: array
+                      description: 'Recipients of an email. This includes recipients in the to, cc, and bcc fields.'
+                      items: {}
+                    from:
+                      type: object
+                      description: The sender of email.
+                      properties:
+                        email:
+                          type: string
+                        name:
+                          type: string
+                          description: The name of the person or organization that is sending the email.
+                    location:
+                      type: object
+                      properties:
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        country:
+                          type: string
+            examples:
+              example-1: {}
+        description: ''
+      description: Return an iframe with your visualization.
+      security:
+        - Access Key: []
 components:
   schemas: {}
   securitySchemes:

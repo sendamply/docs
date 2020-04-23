@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
-  title: Amply v1 API Documentation
+  title: API
   version: '1.0'
   contact:
     name: Support
     url: 'https://sendamply.com/support'
     email: support@sendamply.com
   termsOfService: 'https://sendamply.com/terms'
-  description: The Amply v1 API Documentation
+  description: The Amply v1 API
 servers:
   - url: 'https://sendamply.com/api/v1'
 paths:
@@ -93,7 +93,7 @@ paths:
             schema:
               type: object
               properties:
-                recipients:
+                personalizations:
                   type: array
                   description: 'An array of recipients that may be included in the to, cc, and bcc fields.'
                   items:
@@ -225,8 +225,8 @@ paths:
                     unsubscribe_group_id:
                       type: integer
                       description: The unsubscribe group id that a user will subscribe/unsubscribe from.
-                ip_pool_id:
-                  type: integer
+                ip_or_pool_id:
+                  type: string
                   description: The id of the IP Pool to send this email from.
                 analytics:
                   type: object
@@ -241,7 +241,7 @@ paths:
                       items:
                         type: string
               required:
-                - recipients
+                - personalizations
                 - subject
                 - content
             examples:
@@ -259,8 +259,10 @@ paths:
         required: true
         description: The id of the visualization.
     get:
-      summary: Get a visualization
-      tags: []
+      summary: Get a custom visualization
+      tags:
+        - analytics
+        - visualizations
       responses:
         '200':
           description: OK
@@ -279,10 +281,10 @@ paths:
                   properties:
                     start:
                       type: string
-                      description: 'The start date time formatted as an iso8601 string.'
+                      description: The start date time formatted as an iso8601 string.
                     end:
                       type: string
-                      description: 'The end date time formatted as an iso8601 string.'
+                      description: The end date time formatted as an iso8601 string.
                     recipients:
                       type: array
                       description: 'Recipients of an email. This includes recipients in the to, cc, and bcc fields.'
@@ -311,23 +313,41 @@ paths:
       description: Return an iframe with your visualization.
       security:
         - Access Key: []
-  '/analytics/visualizations/presets/{preset-name}':
+  '/analytics/visualizations/presets/{preset_name}':
     parameters:
       - schema:
           type: string
-        name: preset-name
+        name: preset_name
         in: path
         required: true
-        description: The preset name of the visualization.
+      - schema:
+          type: string
+        name: preset_name
+        in: path
+        required: true
     get:
       summary: Get a preset visualization
-      tags: []
+      tags:
+        - analytics
+        - visualizations
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  graph_type:
+                    type: string
+                  data:
+                    type: object
         '404':
           description: Not Found
       operationId: get-analytics-visualizations-presets-preset-name
+      security:
+        - Access Key: []
+      description: Return an iframe with your visualization.
       requestBody:
         content:
           application/json:
@@ -340,13 +360,13 @@ paths:
                   properties:
                     start:
                       type: string
-                      description: 'The start date time formatted as an iso8601 string.'
+                      description: The start date time formatted as an iso8601 string.
                     end:
                       type: string
-                      description: 'The end date time formatted as an iso8601 string.'
+                      description: The end date time formatted as an iso8601 string.
                     recipients:
                       type: array
-                      description: 'Recipients of an email. This includes recipients in the to, cc, and bcc fields.'
+                      description: 'Will match any recipients of an email. This includes recipients in the to, cc, and bcc fields.'
                       items: {}
                     from:
                       type: object
@@ -366,12 +386,20 @@ paths:
                           type: string
                         country:
                           type: string
+                    categories:
+                      type: array
+                      items:
+                        type: string
             examples:
               example-1: {}
+          text/html:
+            schema:
+              type: object
+              properties:
+                test:
+                  type: string
         description: ''
-      description: Return an iframe with your visualization.
-      security:
-        - Access Key: []
+      parameters: []
 components:
   schemas: {}
   securitySchemes:

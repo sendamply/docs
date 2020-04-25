@@ -9,3 +9,12 @@ Amply is for any business that needs to send email, whether it’s transactional
 ### Getting Started
 
 Amply provides two ways to send email: through our SMTP relay or through our REST API. Once you've determined how you want to send your email, we recommend you take a quick look at domain integration to maximize your deliverability.
+
+
+
+
+
+
+
+
+

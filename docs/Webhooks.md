@@ -52,5 +52,5 @@ To begin processing email using Amply's Inbound Parse Webhook, you will have to 
 
 It should look like this:
 
-
+[](url)
 

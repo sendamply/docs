@@ -10,16 +10,17 @@ Sending email through our SMTP relay is the easiest way for an application to us
 4. Use port 465 for TLS connections and port 587 or 2525 for plain connections. 587 and 2525 can be made secure by upgrading the connection with the STARTTLS command, which is supported by most mail clients.
 
 
-**Frameworks**
+> **Frameworks**
+> 
+> Django
+> 
+> Laravel
+> 
+> Node.js
+> 
+> Ruby on Rails
 
-Django
-
-Laravel
-
-Node.js
-
-Ruby on Rails
-
+****
 
 ## REST API
 
@@ -30,6 +31,7 @@ The REST API has some advantages over SMTP:
 
 You can look at the full API documentation here.
 
+****
 
 ### Domain Integration
 
@@ -53,6 +55,7 @@ After verifying your domain, you're ready to update rDNS. Navigate to your IP pa
 
 Congratulations, you're done setting up your email infrastructure!
 
+****
 
 ### DKIM
 
@@ -98,6 +101,7 @@ The record you should add is a simple CNAME and will look something like this:
 
 Your organization's DKIM record is located at amp._domainkey.yourhost.smtp.sendamply.com.
 
+****
 
 ### SPF
 
@@ -141,6 +145,7 @@ In order to determine if the email server is authorized to send mail from that a
 
 The above SPF record authorizes Amply to send email on behalf of yourdomain.com. As long as the server sending email matches this domain, the email will pass the SPF check. If not, the email client will be unable to verify the sender identity and will most likely flag your email as spam.
 
+****
 
 ### DMARC
 

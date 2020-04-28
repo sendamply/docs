@@ -15,7 +15,9 @@ To begin processing email using Amply's Inbound Parse Webhook, you will have to 
 
 It should look like this:
 
-![Inbound Parse](../../assets/images/inbound_parse_set_mx-a36cefb19518d885afebc340253c923ba9d44140703cbafeadc412c8260b9ef0.jpg)
+![Inbound-Parse.md](../../assets/images/inbound_parse_set_mx-a36cefb19518d885afebc340253c923ba9d44140703cbafeadc412c8260b9ef0.jpg)
+
+
 
 
 ### Step 2: Create the webhook in Amply

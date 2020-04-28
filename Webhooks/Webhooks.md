@@ -35,22 +35,4 @@ Receive an event when one of your users accesses an email that you sent from an 
 ```
 
 Click here to send a test request to the webhook configured in your Settings page.
-
-## Inbound Parse
-
-**Introduction**
-
-Amply can help you process email using the Inbound Parse Webhook. This webhook processes all incoming email for a domain or subdomain, parses the contents and attachments, then POSTs multipart/form-data to a URL that you choose.
-
-To begin processing email using Amply's Inbound Parse Webhook, you will have to setup MX Records, choose the receiving domain that will be receiving the emails you want to parse, and define the URL where you want to POST your parsed emails.
-
-**Step 1: Set your MX Record**
-
-1. Navigate to the MX Records page on your hosting provider’s website. If you’re unsure who your hosting or DNS provider is, please contact your website administrator.
-2. Create a new MX record for the subdomain (e.g. inboundparsetest.yourdomain.com) you want to process incoming email. It is important that this domain is exclusively used to parse your incoming email.
-3. Assign the MX record a priority of 10, and point it to the address: mx.sendamply.com.
-
-It should look like this:
-
-[](url)
-
+ 

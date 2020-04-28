@@ -1,4 +1,4 @@
-# Amply Overview
+# Amply Documentation Overview
 
 Amply is a cloud-based SMTP provider that helps you send email without having to worry about maintaining email servers. Amply manages all of the technical details, from scaling infrastructure, to advanced analytics, to security features like phishing defense and country whitelists/blacklists.
 

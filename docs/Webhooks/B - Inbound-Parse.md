@@ -1,4 +1,4 @@
-# Inbound-Parse
+# Inbound-Parse Webhook
 
 ## Introduction
 
@@ -19,16 +19,16 @@ It should look like this:
 
 
 
-
-### Step 2: Create the webhook in Amply
+### Step 2: Create the Webhook in Amply
 
 From the Amply Dashboard click Infrastructure, and then click Inbound Parse Webhooks. Click the Create button to add a new Inbound Parse Webhook.
 
 From this page, specify the subdomain (optional) and the root domain of the receiving domain. All emails sent to this receiving domain will be parsed. Enter the public URL where you would like the parsed data to be POSTed.
 
+![Inbound-Parse.md](../../assets/images/inbound_parse_create_dashboard-853bad707215bcb58dd084a1c89bc8c52aef8080f5c939f8af13d1b7bcd9e184.jpg)
+
 
 You may set the **Sending Method** to Raw if you would prefer to receive the full MIME message URL encoded in multipart/form-data.
-
 
 
 #### Testing

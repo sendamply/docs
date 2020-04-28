@@ -1,4 +1,4 @@
-# Tracking-Data
+# Tracking Data
 
 ### Control how you track data in your emails
 

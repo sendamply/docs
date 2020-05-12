@@ -1,4 +1,4 @@
-# Integrate Laravel
+# Laravel
 
 ### Integrate Amply with Laravel
 
@@ -26,7 +26,8 @@ Next you need to create a Mailable class, Laravel's CLI tool Artisan makes it ea
 
 This creates a new file under app/Mail/MyTestEmail.php and it should look something like this:
 
-```json
+
+```php
 <?php
 
 namespace App\Mail;
@@ -65,11 +66,13 @@ class MyTestEmail extends Mailable
 ```
 
 
+
 ### Create a view
 
 In Laravel Views are used as 'templates' when sending an email. Create a file under app/resources/views/emails/test.blade.php and insert this code:
 
-```json
+
+```html
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -87,7 +90,8 @@ In Laravel Views are used as 'templates' when sending an email. Create a file un
 
 To send an email, run the following code:
 
-```json
+
+```php
 <?php
 use App\Mail\MyTestEmail;
 

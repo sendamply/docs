@@ -1,4 +1,4 @@
-# Integrate Django
+# Django
 
 ### Integrate Amply with Django
 
@@ -8,7 +8,7 @@ Integrating Amply with Django is easy and can be done in just a few minutes.
 
 Add the following to settings.py:
 
-```json
+```python
 AMPLY_API_KEY = os.getenv('AMPLY_PASSWORD')
 
 EMAIL_HOST = 'smtp.sendamply.com'
@@ -22,8 +22,8 @@ EMAIL_USE_TLS = True
 
 Send mail using the send_mail function:
 
-```json
-**from** django.core.mail **import** send_mail
+```python
+from django.core.mail import send_mail
 send_mail('Subject here', 'Here is the message.', 'from@example.com', ['to@example.com'], fail_silently=False)
 ```
 

@@ -1,6 +1,4 @@
-# REST-API
-
-### Introduction
+# REST API
 
 The Amply API is organized around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.
 
@@ -13,8 +11,3 @@ The REST API has some advantages over SMTP:
 - If you do not control your hosting environment and cannot install/configure an SMTP library.
 
 You can look at the full API documentation here.
-
-
-### Under Construction...
-
-Our API is in beta and will be released to the public soon. Check back for more updates, or contact support@sendamply.com for more information.

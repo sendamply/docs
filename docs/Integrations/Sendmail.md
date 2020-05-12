@@ -1,4 +1,4 @@
-# Integrate Sendmail
+# Sendmail
 
 ### Integrate Amply with Sendmail
 

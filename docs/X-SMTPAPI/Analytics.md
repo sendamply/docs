@@ -1,4 +1,4 @@
-# What is the X-SMTPAPI header?
+# Overview
 
 You may customize the emails you send via SMTP by using different settings (also referred to as filters) that are defined in the X-SMTPAPI header. These filters will override any default settings you have in the "General Settings" and "IP Addresses" pages.
 

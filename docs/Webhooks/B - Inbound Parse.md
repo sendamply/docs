@@ -1,6 +1,6 @@
-# Inbound-Parse Webhook
+# Inbound Parse 
 
-## Introduction
+## What is an Inbound Parse Webhook?
 
 Amply can help you process email using the Inbound Parse Webhook. This webhook processes all incoming email for a domain or subdomain, parses the contents and attachments, then POSTs multipart/form-data to a URL that you choose.
 

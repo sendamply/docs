@@ -1,4 +1,6 @@
-# What are Templates?
+# Overview
+
+### What are Templates?
 
 Templates wrap email contents in a structured manner.
 

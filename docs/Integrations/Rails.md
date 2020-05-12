@@ -2,7 +2,7 @@
 tags: [integrations]
 ---
 
-# Integrate Ruby on Rails
+# Ruby on Rails
 
 ### Integrate Amply with Ruby on Rails
 
@@ -12,7 +12,7 @@ Integrating Amply with Ruby on Rails is easy and can be done in just a few minut
 
 You can configure all environments in the config/environment.rb file, or a single environment (development, production, or test) in config/environments/*environment.rb*:
 
-```json
+```ruby
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings        = {

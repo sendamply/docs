@@ -1,4 +1,4 @@
-# Integrate Postfix
+# Postfix
 
 ### Integrate Amply with Postfix
 

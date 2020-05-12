@@ -1,4 +1,4 @@
-# Integrate Node.js
+# Node.js
 
 ### Integrate Node.js with Amply
 
@@ -14,7 +14,7 @@ Install NodeMailer with the following command:
 
 ### Send an Email
 
-```json
+```javascript
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport

@@ -1,7 +1,5 @@
 # Django
 
-### Integrate Amply with Django
-
 Integrating Amply with Django is easy and can be done in just a few minutes.
 
 ### Update config
@@ -17,6 +15,8 @@ EMAIL_HOST_PASSWORD = AMPLY_LIVE_ACCESS_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ```
+
+****
 
 ### Send email
 

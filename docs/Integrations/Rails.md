@@ -4,8 +4,6 @@ tags: [integrations]
 
 # Ruby on Rails
 
-### Integrate Amply with Ruby on Rails
-
 Integrating Amply with Ruby on Rails is easy and can be done in just a few minutes.
 
 ### Configure ActionMailer
@@ -28,8 +26,3 @@ end
 ```
 
 That's it! All mail sent by your app will be routed through Amply servers.
-
-
-```ruby
-p 'test'
-```

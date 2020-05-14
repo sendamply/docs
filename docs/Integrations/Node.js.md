@@ -1,7 +1,5 @@
 # Node.js
 
-### Integrate Node.js with Amply
-
 Sending an email in Node.js is easy with the module NodeMailer. For more detailed documentation, check out the [NodeMailer community website](https://community.nodemailer.com/).
 
 
@@ -9,8 +7,11 @@ Sending an email in Node.js is easy with the module NodeMailer. For more detaile
 
 Install NodeMailer with the following command:
 
-> $ npm install --save nodemailer
+```
+$ npm install --save nodemailer
+```
 
+****
 
 ### Send an Email
 

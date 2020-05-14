@@ -2,11 +2,13 @@
 
 There are a couple of steps you need to complete in order for Amply to send email on behalf of your domain and maximize the deliverability rate for your email.
 
+****
 
 ### Marketing Email
 
 To send marketing email on behalf of your domain, you'll need to verify that you have control of the mailbox you send from. The best way to do this (which will give you the highest delivery rate) is to follow the steps below from the "Transactional Email" section. If you cannot update your DNS records, then you can still verify an individual mailbox by navigating to the campaign page and clicking on "Verify New Email Address". If you complete the steps in the "Transactional Email" section, then you can skip verifying your mailbox.
 
+****
 
 ### Transactional Email
 

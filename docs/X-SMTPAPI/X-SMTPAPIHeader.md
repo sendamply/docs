@@ -1,14 +1,14 @@
-# Overview
+# X-SMTPAPI Header
 
 You may customize the emails you send via SMTP by using different settings (also referred to as filters) that are defined in the X-SMTPAPI header. These filters will override any default settings you have in the "General Settings" and "IP Addresses" pages.
 
 ****
 
-### Analytics
+## Analytics
 
 Control what type of analytics data Amply stores for the email you send. The default setting is user.
 
-**Analytics levels**
+#### Analytics levels
 
 **none** - do not track analytics for emails or users.
 
@@ -31,7 +31,7 @@ Example
 
 ****
 
-### Bounce notifications
+## Bounce Notifications
 
 Set an email address to receive bounce notifications on failed sends.
 
@@ -50,7 +50,7 @@ Set an email address to receive bounce notifications on failed sends.
 
 ****
 
-### Clicktracking
+## Clicktracking
 
 Track activity on your links.
 
@@ -72,7 +72,7 @@ In order to track clicks, we rewrite the domain in the URLs of your email to poi
 
 ****
 
-### Templates
+## Templates
 
 Wrap your emails in a template. You can get the ID of the template from the URL of the template you want to use. For example, if you want to include the template at https://www.sendamply.com/home/templates/1, then the template ID would be 1.
 
@@ -91,7 +91,7 @@ Wrap your emails in a template. You can get the ID of the template from the URL 
 
 ****
 
-### Unsubscribe groups
+## Unsubscribe Groups
 
 Define what group a user manages their subscriptions from. You can get the ID of the group from the URL of the group you want to use. For example, if you want to include the unsubscribe group at https://www.sendamply.com/home/unsubscribe_groups/1, then the group ID would be 1.
 

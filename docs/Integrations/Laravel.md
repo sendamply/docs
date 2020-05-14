@@ -1,28 +1,33 @@
 # Laravel
 
-### Integrate Amply with Laravel
-
 Laravel provides a robust API over the popular SwiftMailer library with drivers for SMTP, PHP's mail, sendmail and more. In this example, we will be sending an email withusing the SMTP Driver. For more information, check out the docs for [Laravel's Mail interface](https://laravel.com/docs/7.x/mail).
+
+****
 
 ### Configure
 
 Add the following to your .env file:
 
-`MAIL_DRIVER=smtp
+```
+MAIL_DRIVER=smtp
 MAIL_HOST=smtp.sendamply.com
 MAIL_PORT=587
 MAIL_USERNAME=your_amply_username
 MAIL_PASSWORD=your_amply_live_access_key
 MAIL_ENCRYPTION=tls
 MAIL_FROM_NAME="John Smith"
-MAIL_FROM_ADDRESS=from@example.com`
+MAIL_FROM_ADDRESS=from@example.com
+```
 
+****
 
-### Create a Mailable
+### Create a mailable
 
-Next you need to create a Mailable class, Laravel's CLI tool Artisan makes it easy. From the CLI:
+Next, you need to create a Mailable class. Laravel's CLI tool Artisan makes it easy. From the CLI:
 
-> php artisan make:mail MyTestEmail
+```
+php artisan make:mail MyTestEmail
+```
 
 This creates a new file under app/Mail/MyTestEmail.php and it should look something like this:
 
@@ -65,7 +70,7 @@ class MyTestEmail extends Mailable
 }
 ```
 
-
+****
 
 ### Create a view
 
@@ -85,6 +90,7 @@ In Laravel Views are used as 'templates' when sending an email. Create a file un
 </html>
 ```
 
+****
 
 ### Send an email
 

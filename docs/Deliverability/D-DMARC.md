@@ -4,6 +4,10 @@ DMARC stands for Domain-based Message Authentication, Reporting and Conformance 
 
 DMARC instructs mailbox providers on how to handle unauthenticated email through a DMARC policy that you create in a DNS TXT record. This removes any guesswork on how mailbox providers should handle messages that fail DMARC authentication.
 
+****
+
+## Setting your DMARC Record
+
 To pass DMARC, your email must pass either or both of:
 
 - SPF authentication and SPF alignment (Header From and Envelope From domains match)
@@ -30,4 +34,4 @@ For example, the following DMARC record will notify postmaster@example.com and s
 
 > NAME _dmarc.example.com IN TXT  "v=DMARC1; p=quarantine; rua=mailto:postmaster@example.com"
 
-Important: if your records are not aligned, make sure that you set your policy to none, instead of quarantine or reject. Although quarantine and reject will increase your deliverability rate, DMARC will fail if your records are not aligned and your email will automatically be sent to spam or be rejected.
+**Important:** If your records are not aligned, make sure that you set your policy to none, instead of quarantine or reject. Although quarantine and reject will increase your deliverability rate, DMARC will fail if your records are not aligned and your email will automatically be sent to spam or be rejected.

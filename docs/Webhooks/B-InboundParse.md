@@ -1,11 +1,10 @@
-# Inbound Parse 
-
-## What is an Inbound Parse Webhook?
+# Inbound Parse
 
 Amply can help you process email using the Inbound Parse Webhook. This webhook processes all incoming email for a domain or subdomain, parses the contents and attachments, then POSTs multipart/form-data to a URL that you choose.
 
-To begin processing email using Amply's Inbound Parse Webhook, you will have to setup MX Records, choose the receiving domain that will be receiving the emails you want to parse, and define the URL where you want to POST your parsed emails.
+To begin processing email using Amply's Inbound Parse Webhook, you will have to set up MX Records, choose the receiving domain that will be receiving the emails you want to parse, and define the URL where you want to POST your parsed emails.
 
+****
 
 ### Step 1: Set your MX Record
 
@@ -17,7 +16,7 @@ It should look like this:
 
 ![Inbound-Parse.md](../../assets/images/inbound_parse_set_mx-a36cefb19518d885afebc340253c923ba9d44140703cbafeadc412c8260b9ef0.jpg)
 
-
+****
 
 ### Step 2: Create the Webhook in Amply
 
@@ -35,8 +34,9 @@ You may set the **Sending Method** to Raw if you would prefer to receive the ful
 
 To test that your Inbound Parse Webhook has been set up correctly, send an email to test@inboundparsetest.yourdomain.com.
 
+****
 
-#### Default Parameters
+### Default Parameters
 
 
 attachments | The number of attachments included in the email.
@@ -56,7 +56,7 @@ attachments | The number of attachments included in the email.
 
 **Example Payload with Default Parameters**
 
-``json
+```json
 {
   "attachments": "1",
   "attachment1": #<ActionDispatch::Http::UploadedFile:0x00007fe055d3d488 @tempfile=#<Tempfile: (closed)>, @original_filename="file.txt", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"attachment1\"; filename=\"file.txt\"\r\nContent-Type: application/octet-stream\r\n">,
@@ -72,9 +72,10 @@ attachments | The number of attachments included in the email.
   "text": "This is a test :)\n",
   "to": "test@inboundparsetest.yourdomain.com"
 }
-``
+```
 
-**Raw Parameters**
+
+#### Raw Parameters
 
 
  **cc** | Email cc field, as taken from the message headers.
@@ -86,9 +87,10 @@ attachments | The number of attachments included in the email.
  **to** | Email recipient field, as taken from the message headers
 
 
- **Example Payload with Default Parameters**
+ #### Example Payload with Default Parameters
 
-`{
+```
+{
   "cc": "",
   "email": "Date: Thu, 12 Sep 2019 20:05:22 -0700\r\nFrom: Sender <sender@sendamply.com>\r\nTo: test@inboundparsetest.yourdomain.com\r\nMessage-ID: <CAG9TFY-2-pU=hseHTsMJMHm=5xRt0+f1rY0LUO+g5A84YGAkPw@mail.gmail.com>\r\nSubject: Testing!\r\nMime-Version: 1.0\r\nContent-Type: multipart/alternative;\r\n boundary=00000000000010b9d6059266878b\r\nContent-Transfer-Encoding: 7bit\r\nDKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendamply.com;\r\n s=google; h=mime-version:from:date:message-id:subject:to; \r\n bh=dzz+0rtoTHw62UCVZJWzt8EGq917iyUkhuCSChS683A=;\r\n b=GvPsGGRt2MvK+ZLVOtLemYC4ouplcyxM/FY0ZhzctA8ognrfVgSNkrdxxpy2AMIN3W\r\nPr1rL5+kIwwLAcmzfc9c1h3wo2ujO2Qlx/LpJcXHY8e+DnAzVvHNPzQ8CjmDcJCfIN3h\r\n RYOWziPEWblb49P0Xy5OvJK6bi1GEmQtBj/Dk=\r\nX-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;\r\n d=1e100.net; s=20161025;\r\n h=x-gm-message-state:mime-version:from:date:message-id:subject:to;\r\n bh=dzz+0rtoTHw62UCVZJWzt8EGq917iyUkhuCSChS683A=;\r\n b=PZ3AagpvKS6ieGMERFkxaDt/tE2/cD7fL6gDn3yXQVqIGyTek7kVeMh3dB5N6+KXTH\r\n 9zr33dLS9PjJVG8JZEQxiZm6ajK21dv9SxDnev0m4hxxlgTeCZKg6fZnIg3EVF70g3xz\r\n bykgUVBFejZTDIEbjsUUmRWM6btnRKvtvJexntS+3VGrwP3NWdLD611C/Bay626G0HzM\r\n gI63129baV7Y5ziBpnqZDuLCY4zRjfMB8joIB//AEDUblQ2p6kI0PQ3EfcAQuR+6uTwJ\r\n 3xAymmYAlfmLZWra5kuotUarWzEU3LsN9D913en2/kjQ7+zO1ipuYkTqRWN3JD03KImV\r\n OWwA==\r\nX-Gm-Message-State: APjAAAXy9602I0ulZ0xU6Lcy4WH4Tu2VOqUcxJvqBYVzHjcj5D0XnbHc\r\n EdGSRNQiVQsBv1Tj54Vr1BpeiNQI2YqgoQuls8kHM98VoVksUg==\r\nX-Google-Smtp-Source: APXvYqxuC6zsmyLl8hFsMLOee8edlC+/992NbQt8TZjx7n2F2v4Kt0GW8UtN/eO0pH8ZXQlJ15gK5M4MF9+FZdSDpHE=\r\nX-Received: by 2002:a02:81ca:: with SMTP id r10mr46494565jag.62.1568343933887;\r\n Thu, 12 Sep 2019 20:05:33 -0700 (PDT)\r\n\r\n\r\n--00000000000010b9d6059266878b\r\nContent-Type: text/plain;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\nThis is a test :)\r\n\r\n--00000000000010b9d6059266878b\r\nContent-Type: text/html;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\n<div dir=\"ltr\">This is a test :)<br clear=\"all\"></div>\r\n\r\n--00000000000010b9d6059266878b--\r\n",
   "envelope": "{\"to\":[\"test@inboundparsetest.yourdomain.com\"],\"from\":\"sender@sendamply.com\"}",
@@ -96,14 +98,16 @@ attachments | The number of attachments included in the email.
   "sender_ip": "1.2.3.4",
   "subject": "Testing!",
   "to": "test@inboundparsetest.yourdomain.com"
-}`
+}
+```
 
+****
 
-#### IP Monitoring
+### IP Monitoring
 
 Receive an event when one of your users accesses an email that you sent from an unauthorized IP address. The following params will be sent:
 
-```json
+```
 ["webhook_event"] => "ip_monitoring",
 ["access_key"]    => "your_access_key_here",
 ["email_address"] => "test@sendamply.com",

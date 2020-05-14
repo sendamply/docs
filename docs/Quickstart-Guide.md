@@ -112,5 +112,3 @@ For more details check out our full API reference.
 
 
 That's it! You're ready to get started!
-
-

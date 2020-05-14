@@ -1,4 +1,4 @@
-# Overview
+# Amply Overview
 
 Amply is a cloud-based email delivery service that allows you to send email and analyze insightful data on your users without the cost and headache that comes with managing your own email servers. 
 
@@ -14,13 +14,4 @@ Amply is for any business or application that needs to send email, whether it’
 
 ## Get Started
 
-To send email with Amply you can connect with either our SMTP Relay or REST API. Check out our [QuickStart Guide](../../docs/-Quickstart/QuickstartGuide.md) to get started right away. 
-
-
-
-
-
-
-
-
-
+To send email with Amply you can connect with either our SMTP Relay or REST API. Check out our [QuickStart Guide](../docs/Quickstart-Guide.md) to get started right away.

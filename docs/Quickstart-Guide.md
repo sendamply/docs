@@ -92,10 +92,14 @@ SMTP Relay | REST API
  Platform independent | Expanded functionality but more complex (requires technical know-how)
  Established email standard | Easily accessible if your ISP blocks traffic on mail ports
 
+In this guide, we'll send an email using the API via a simple cURL request. You can take a deeper look at setting up the SMTP relay or API here:
+
+- [SMTP relay](Integrations/SMTP-Relay.md)
+- [REST API](https://docs.sendamply.com/docs/api/Amply.v1.yaml/paths/~1email/post)
 
 #### Send an email
 
-You can use the following code in bash to send an email:
+The following cURL request makes a simple HTTP call to our API servers:
 
 ```json
 curl https://sendamply.com/api/v1/email \

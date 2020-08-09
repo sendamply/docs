@@ -1,114 +1,146 @@
 # Quickstart Guide
 
-Learn how to start sending email with Amply in just a few minutes. 
+#### Learn how to start sending email with Amply in just a few minutes. 
 
-In this guide we'll go over how to verify your domain, update your DNS records, and send email via SMTP or API.
+Using Amply can begin as soon as you register your account, and requires just a few steps:
 
-****
+1) Sender Verification
+2) Creating an IP Pool
+3) Provisioning an Access Token
+4) Integration via SMTP Relay or API
+5) (Optional) Updating rDNS for improved deliverability
 
-## How to Verify your Domain
-
-The first thing you need to do once you've created your account and added your domain is to verify it. 
-
-To do so:
-
-1. Open your DNS provider and add the three TXT DNS records - SPF, DKIM, DMARC.
-
-2. If you want Amply to track clicks and opens add the CNAME record.
-
-> Once the changes you've made to your DNS records take effect your domain will be verified (Can take up to 48 hours).
-
-
-### Verifying your domain is important. Here's why:
-
-- confirms you are authorized to send for your domain.
-
-- helps you build a positive domain reputation.
-
-- protects your email from spoofing attempts
+Follow the guide below to start sending email with Amply! [If you haven't created an account yet, you can do so here.](https://sendamply.com/plans)
 
 ****
 
-## Implement DNS TXT Records 
+### 1) Sender Verification
 
-- __SPF__: email validation protocol. More info on [SPF](../../docs/Deliverability/B-SPF.md)
-- __DKIM__: email validation protocol that uses a digital signature to confirm authenticity of messages. More info on [DKIM](../../docs/Deliverability/C-DKIM.md)
-- __DMARC__: email validation method that informs senders on what messages are authenticating or not. More info on [DMARC](../../docs/Deliverability/D-DMARC.md)
-- __CNAME__: Tracks opens and clicks (unsubscribe links).
+For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual sender, **sender&#64;somedomain.com**.
 
+This guide will verify an entire domain, but you can check out the [Server Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual sender.
 
-Type | Value | Purpose
----------|----------|---------
- TXT | “value=spf1 include:sendamply.com ~all” | SPF (Required)
- TXT | "value=DKIM1" | DKIM (Required)
- TXT | "value=DMARC1" | DMARC (Required)
- CNAME | “c.sendamply.com” | Tracking (Optional)
+#### Verify your domain
 
-****
+Navigate to the "Verified Domains" page by clicking on the "Mail Settings" tab from your dashboard. Click on the "+" sign to add a new Verified Domain.
 
-### Update your Domain Records with your DNS Provider
+Enter the domain you'd like to verify in the "Domain Name" input. The DNS records you need to provision will be listed next to it:<br/>
 
-You will need access to your domain registrar in order to complete the verification process for your sending domain. 
+![Domain Verification](../assets/images/domain_verification.png)<br/>
 
-We have listed a few of the most popular DNS providers below. Please contact your DNS administrator directly if yours is not listed here.
+Four green checkmarks will be displayed once you've added the records.
 
-[Cloudflare](https://www.cloudflare.com/plans/?utm_expid=.7pphc_ZaTHiTiyD0kMWvaA.0&utm_referrer=https%3A%2F%2Fwww.sparkpost.com%2Fdocs%2Fgetting-started%2Fgetting-started-sparkpost%2F)
+<!-- theme: info -->
+> DNS changes may take up to 48 hours to take effect (depending on the TTL of the record).
 
-[GoDaddy](https://www.godaddy.com/help/manage-dns-zone-files-680)
-
-[NameCheap](https://www.namecheap.com/)
-
-[RackSpace](https://support.rackspace.com/)
-
-[Route53](https://aws.amazon.com/route53/)
+Click on "Create", and you have successfully verified your domain!
 
 ****
 
-## Send with STMP Relay or REST API
+### 2) Creating an IP Pool
 
-Once your domain is verified, you can start sending email.
+An IP Pool is a collection of IP addresses. We automatically create a pool called Global when you register your account. The Global pool is every IP that is allocated to your account. We recommend that you create two separate pools for transactional and marketing email.
 
-There are two ways to send email with Amply: via our **SMTP relay** or **REST API**. Both are highly effective methods of delivering email so choose whatever is best for your use case. Here are a few things to keep in mind:
+Having two separate pools means you can associate different IPs with each type.
 
+For mission-critical emails, you can have a pool of IPs whose reputation needs to remain immaculate to maintain the highest level of deliverability.
+
+For emails that are more likely to be marked as spam, like marketing emails, you can have a set of IPs dedicated just for that. This way any reputation dings in one pool won't affect the reputation of the other.
+
+A good configuration would be something like:
+
+Pool Name | IPs
+---------|----------
+ Transactional | 1.1.1.1, 1.1.1.2, ... as many as needed
+ Marketing | 1.1.2.1, 1.1.2.2, ... as many as needed
+
+ The most important thing is that there is no overlap in IPs between the Transactional pool and the Marketing pool.
+
+#### Create the pool
+
+Navigate to the "IP Pools" page by clicking on the "Mail Settings" tab from your dashboard. Click on the "+" sign to add a new IP Pool. Drag the IPs you want to associate with the pool into the "IP Addresses in IP Pool" column.
+
+![IP Pool](../assets/images/ip_pool.png)
+
+Take note of the UUID of the pool you've created; we'll use this in Step 4.
+
+****
+
+### 3) Provisioning an Access Token
+
+Access Tokens are an alternative to passwords for authentication to Amply when using the API or the SMTP relay.
+
+#### Create the token
+
+Navigate to the "Access Tokens" page by clicking on the "Mail Settings" tab from your dashboard. You can use the existing token, or click on the "+" sign to add a new Access Token.
+
+![Access Token](../assets/images/access_token.png)
+
+Take note of the token's secret value; we'll use this in Step 4.
+
+****
+
+### 4) Integration via SMTP Relay or API
+
+There are two ways to send email with Amply: via our [SMTP relay](Integrations/SMTP-Relay.md) or [REST API](https://docs.sendamply.com/docs/api/Amply.v1.yaml/paths/~1email/post). Both are highly effective methods of delivering email so choose whatever is best for your use case.
+
+Here are a few things to keep in mind:
 
 SMTP Relay | REST API
 ---------|----------
- Easy to set up and integrate | Faster delivery (less back and forth between servers)
+ Easy to set up and integrate | Easy to secure (all connections sent over HTTPS)
  Platform independent | Expanded functionality but more complex (requires technical know-how)
- Established email standard | More robust
+ Established email standard | Easily accessible if your ISP blocks traffic on mail ports
 
 
-> SMTP is a widely adopted email protocol, while REST API offers you more flexibility in how you wish to operate.
+#### Send an email
 
-****
-
-### Send with SMTP
-
-Sending email through our SMTP relay is the easiest way for an application to use Amply because it only requires updating your SMTP configuration in 4 simple steps.
-
-1. Change your SMTP username to the username of the Pool or IP Address you want to send from. For most use cases, you should use the Global Pool.
-2. Set the SMTP password of the relay to one of your live access tokens.
-3. Set the SMTP host of the relay to smtp.sendamply.com.
-4. Use port 465 for TLS connections and port 587 or 2525 for plain connections. 587 and 2525 can be made secure by upgrading the connection with the STARTTLS command, which is supported by most mail clients.
-
-****
-
-### Send with REST API
-
-Run this code: 
+You can use the following code in bash to send an email:
 
 ```json
-example code
+curl https://sendamply.com/api/v1/email \
+    -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+    -H 'Content-Type: application/json' \
+    --data-binary @- << EOF
+    {
+      "subject": "Hello, from Amply!",
+      "from": {
+        "email": "donotreply@YOURDOMAIN.com",
+        "name": "John Smith"
+      },
+      "content": [
+        {
+          "type": "text/plain",
+          "value": "Hi there!"
+        }
+      ],
+      "personalizations": [
+        {
+          "to": [
+            {
+              "email": "you@yourdomain.com",
+              "name": "Your Name"
+            }
+          ]
+        }
+      ],
+      "ip_or_pool_uuid": "YOUR_IP_POOL_UUID"
+    }
+EOF
 ```
 
-The Amply REST API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.
+Replace the sender (from address **donotreply&#64;YOURDOMAIN.com**) with a sender from a domain you verified in Step 1. In addition, replace the **YOUR_IP_POOL_UUID** with the IP Pool UUID you created in Step 2. Finally, replace **YOUR_ACCESS_TOKEN** with the access token you created in Step 3.
 
-The REST API has some advantages over SMTP:
+****
 
-- If your ISP or hosting provider blocks traffic on mail ports.
-- If you do not control your hosting environment and cannot install/configure an SMTP library.
+### 5) Updating rDNS for improved deliverability
 
-For more details check out our full API reference.
+Reverse DNS resolution (rDNS) is the querying technique of DNS to determine the domain name associated with an IP address. Email clients favorably look at IP addresses whose rDNS domain name matches the return-path domain.
 
+Since all IP addresses that Amply provisions are dedicated, you are free to update the rDNS record for each of your IPs. You should only do this if you are sending out of one domain. For example, you would NOT want to provision a new rDNS record if you are sending from john&#64;example.com and john&#64;test.com.
 
-That's it! You're ready to get started!
+If you choose to update your rDNS, navigate to the IP Address you'd like to update by clicking on "Mail Settings" and then "IP Addresses". Select the IP from the list.
+
+![IP Address](../assets/images/ip_address.png)
+
+In the above example, we set the rDNS domain to `ip1.yourdomain.com`. You don't need to use `ip1`, but you do need to ensure the value is unique, and that you've provisioned an A record with the value of the IP address.

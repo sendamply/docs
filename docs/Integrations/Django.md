@@ -7,11 +7,11 @@ Integrating Amply with Django is easy and can be done in just a few minutes.
 Add the following to settings.py:
 
 ```python
-AMPLY_API_KEY = os.getenv('AMPLY_PASSWORD')
+AMPLY_ACCESS_TOKEN = os.getenv('AMPLY_ACCESS_TOKEN')
 
-EMAIL_HOST = 'smtp.sendamply.com'
-EMAIL_HOST_USER = 'AMPLY_USERNAME'
-EMAIL_HOST_PASSWORD = AMPLY_LIVE_ACCESS_KEY
+EMAIL_HOST = 'smtp.sendamply.net'
+EMAIL_HOST_USER = 'AMPLY_UUID'
+EMAIL_HOST_PASSWORD = AMPLY_ACCESS_TOKEN
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ```

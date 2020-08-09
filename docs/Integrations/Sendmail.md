@@ -8,7 +8,7 @@ Integrating Amply with Sendmail is easy and can be done in just a few minutes.
 Set the authorization credentials in /etc/mail/access:
 
 ```
-AuthInfo:smtp.sendgrid.net "U:yourAmplyUserName" "P:yourAmplyLiveAccessToken" "M:PLAIN"
+AuthInfo:smtp.sendamply.net "U:yourAmplyUUID "P:yourAmplyAccessToken" "M:PLAIN"
 ```
 
 ****
@@ -18,7 +18,7 @@ AuthInfo:smtp.sendgrid.net "U:yourAmplyUserName" "P:yourAmplyLiveAccessToken" "M
 Define the Smart Host in /etc/mail/sendmail.mc:
 
 ```
-define(`SMART_HOST', `smtp.sendamply.com')dnl
+define(`SMART_HOST', `smtp.sendamply.net')dnl
 FEATURE(`access_db')dnl
 define(`RELAY_MAILER_ARGS', `TCP $h 587')dnl
 define(`ESMTP_MAILER_ARGS', `TCP $h 587')dnl
@@ -49,6 +49,3 @@ $ service sendmail restart
 ```
 
 Sendmail should now be configured to use Amply!
-
-
-

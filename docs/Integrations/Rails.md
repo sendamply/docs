@@ -13,11 +13,11 @@ You can configure all environments in the config/environment.rb file, or a singl
 ```ruby
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings        = {
-    user_name: 'your_amply_username',
-    password: 'your_amply_live_access_key',
+  config.action_mailer.smtp_settings = {
+    user_name: 'your_amply_uuid',
+    password: 'your_amply_access_token',
     domain: 'yourdomain.com',
-    address: 'smtp.sendamply.com',
+    address: 'smtp.sendamply.net',
     port: 587,
     authentication: :plain,
     enable_starttls_auto: true

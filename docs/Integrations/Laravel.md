@@ -10,10 +10,10 @@ Add the following to your .env file:
 
 ```
 MAIL_DRIVER=smtp
-MAIL_HOST=smtp.sendamply.com
+MAIL_HOST=smtp.sendamply.net
 MAIL_PORT=587
-MAIL_USERNAME=your_amply_username
-MAIL_PASSWORD=your_amply_live_access_key
+MAIL_USERNAME=your_amply_uuid
+MAIL_PASSWORD=your_amply_access_token
 MAIL_ENCRYPTION=tls
 MAIL_FROM_NAME="John Smith"
 MAIL_FROM_ADDRESS=from@example.com

@@ -14,7 +14,7 @@ smtp_sasl_security_options = noanonymous
 smtp_sasl_tls_security_options = noanonymous
 smtp_tls_security_level = encrypt
 header_size_limit = 4096000
-relayhost = [smtp.sendamply.com]:587
+relayhost = [smtp.sendamply.net]:587
 ```
 
 ****
@@ -24,7 +24,7 @@ relayhost = [smtp.sendamply.com]:587
 Now you need to specify your credentials in the file /etc/postfix/sasl_passwd (you'll likely need to create it):
 
 ```
-[smtp.sendamply.com]:587 yourAmplyUsername:yourAmplyLiveAccessToken
+[smtp.sendamply.com]:587 yourAmplyUUID:yourAmplyAccessToken
 ```
 
 Next, make sure the file has restricted read and write access only for root, and use the postmap command to update Postfix's hashtables to use this new file:

@@ -6,12 +6,12 @@ DMARC instructs mailbox providers on how to handle unauthenticated email through
 
 ****
 
-## Setting your DMARC Record
+### Setting your DMARC Record
 
 To pass DMARC, your email must pass either or both of:
 
-- SPF authentication and SPF alignment (Header From and Envelope From domains match)
-- DKIM authentication and DKIM alignment (Signing domain and Header From domain match)
+- SPF authentication and SPF alignment (Header From and Return-Path domains match)
+- DKIM authentication and DKIM alignment (DKIM Signing domain and Header From domain match)
 
 Mailbox providers send regular DMARC aggregate and forensic reports back to senders, giving you visibility into what messages are authenticating, what messages are not and why.
 

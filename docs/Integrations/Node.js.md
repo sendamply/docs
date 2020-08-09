@@ -20,12 +20,12 @@ var nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
-  host: "smtp.sendamply.com",
+  host: "smtp.sendamply.net",
   port: 465,
   secure: true,
   auth: {
-    user: "your_amply_username",
-    pass: "your_amply_live_access_key"
+    user: "your_amply_uuid",
+    pass: "your_amply_access_token"
   }
 });
 

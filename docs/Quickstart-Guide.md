@@ -5,20 +5,20 @@
 Using Amply can begin as soon as you register your account, and requires just a few steps:
 
 1) Sender Verification
-2) Creating an IP Pool
-3) Provisioning an Access Token
-4) Integration via SMTP Relay or API
-5) (Optional) Updating rDNS for improved deliverability
+2) Create an IP Pool
+3) Provision an Access Token
+4) Integrate via SMTP Relay or API
+5) (Optional) Update rDNS for improved deliverability
 
-Follow the guide below to start sending email with Amply! [If you haven't created an account yet, you can do so here.](https://sendamply.com/plans)
+Follow the guide below to start sending email with Amply! If you haven't created an account yet, you can do so [here.](https://sendamply.com/plans)
 
 ****
 
 ### 1) Sender Verification
 
-For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual sender, **sender&#64;somedomain.com**.
+For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual email address, **sender&#64;somedomain.com**.
 
-This guide will verify an entire domain, but you can check out the [Server Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual sender.
+This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 
 #### Verify your domain
 
@@ -37,7 +37,7 @@ Click on "Create", and you have successfully verified your domain!
 
 ****
 
-### 2) Creating an IP Pool
+### 2) Create an IP Pool
 
 An IP Pool is a collection of IP addresses. We automatically create a pool called Global when you register your account. The Global pool is every IP that is allocated to your account. We recommend that you create two separate pools for transactional and marketing email.
 
@@ -66,7 +66,7 @@ Take note of the UUID of the pool you've created; we'll use this in Step 4.
 
 ****
 
-### 3) Provisioning an Access Token
+### 3) Provision an Access Token
 
 Access Tokens are an alternative to passwords for authentication to Amply when using the API or the SMTP relay.
 
@@ -80,7 +80,7 @@ Take note of the token's secret value; we'll use this in Step 4.
 
 ****
 
-### 4) Integration via SMTP Relay or API
+### 4) Integrate via SMTP Relay or API
 
 There are two ways to send email with Amply: via our [SMTP relay](Integrations/SMTP-Relay.md) or [REST API](https://docs.sendamply.com/docs/api/Amply.v1.yaml/paths/~1email/post). Both are highly effective methods of delivering email so choose whatever is best for your use case.
 
@@ -137,7 +137,7 @@ Replace the sender (from address **donotreply&#64;YOURDOMAIN.com**) with a sende
 
 ****
 
-### 5) Updating rDNS for improved deliverability
+### 5) Update rDNS for improved deliverability
 
 Reverse DNS resolution (rDNS) is the querying technique of DNS to determine the domain name associated with an IP address. Email clients favorably look at IP addresses whose rDNS domain name matches the return-path domain.
 

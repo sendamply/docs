@@ -1,6 +1,6 @@
 # Laravel
 
-Laravel provides a robust API over the popular SwiftMailer library with drivers for SMTP, PHP's mail, sendmail and more. In this example, we will be sending an email withusing the SMTP Driver. For more information, check out the docs for [Laravel's Mail interface](https://laravel.com/docs/7.x/mail).
+Laravel provides a robust API over the popular SwiftMailer library with drivers for SMTP, PHP's mail, sendmail and more. In this example, we will be sending an email using the SMTP Driver. For more information, check out the docs for [Laravel's Mail interface](https://laravel.com/docs/7.x/mail).
 
 ****
 
@@ -74,7 +74,7 @@ class MyTestEmail extends Mailable
 
 ### Create a view
 
-In Laravel Views are used as 'templates' when sending an email. Create a file under app/resources/views/emails/test.blade.php and insert this code:
+In Laravel, Views are used as 'templates' when sending an email. Create a file under app/resources/views/emails/test.blade.php and insert this code:
 
 
 ```html

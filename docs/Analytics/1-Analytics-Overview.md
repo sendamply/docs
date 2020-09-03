@@ -56,7 +56,7 @@ title: Sales + Support Teams
 
 ### Types of Data
 
-Amply collects two types of data around your email: **email activity** and **email contents**. This data is easily queryable through your dashboard via the SQL page under the Analytics tab.
+Amply collects two types of data around your email: **email activity** and **email contents**. This data is easily queryable in your dashboard by clicking on the SQL page under the Analytics tab.
 
 **email_activities**
 
@@ -65,20 +65,20 @@ Amply collects two types of data around your email: **email activity** and **ema
  **activity_type_id** | The type of activity. Can be sends, opens, clicks, bounces, spam_reports, unsubscribes, inbounds.
  **browser** | A string containing the browser.
  **categories** | A comma seperated string containing tagged email categories.
- **city** | A string containing the city. We ignore this field if it has been proxied (such as through Gmail).
- **country** | A string containing the country. We ignore this field if it has been proxied (such as through Gmail).
- **created_at** | A iso8601 timestamp containing the time of the event.
+ **city** | A string containing the city. We ignore this field if it has been proxied.
+ **country** | A string containing the country. We ignore this field if it has been proxied.
+ **created_at** | An iso8601 formatted string containing the time of the event.
  **email_client** | A string containing the email client.
  **error** | A string containing the error (if any).
  **from** | A string containing the header from.
  **href** | A string containing the link (if a click event).
  **ip_address** | A string containing the IP address of the recipient.
- **latitude** | A string containing the latitude that has been derived from the ip_address.
- **longitude** | A string containing the latitude that has been derived from the ip_address.
+ **latitude** | A string containing the latitude that has been derived from the ip_address. We ignore this field if it has been proxied.
+ **longitude** | A string containing the longitude that has been derived from the ip_address. We ignore this field if it has been proxied.
  **message_id** | A string containing the message id from the email content.
  **outbound_ip_address** | A string containing the IP address that sent the email.
  **recipient** | A string containing the email address of the recipient.
- **state** | A string containing the city. We ignore this field if it has been proxied (such as through Gmail).
+ **state** | A string containing the city. We ignore this field if it has been proxied.
  **subject** | A string containing the subject from the email content.
 
 **email_contents**
@@ -89,4 +89,4 @@ Amply collects two types of data around your email: **email activity** and **ema
  **headers** | A string seperated by carriage returns `\r\n` containing the headers.
  **html** | A string containing the HTML contents.
  **message_id** | A string containing the message id.
- **text** | A string containing the text part.
+ **text** | A string containing the text contents.

@@ -4,6 +4,8 @@ DMARC stands for Domain-based Message Authentication, Reporting and Conformance 
 
 DMARC instructs mailbox providers on how to handle unauthenticated email through a DMARC policy that you create in a DNS TXT record. This removes any guesswork on how mailbox providers should handle messages that fail DMARC authentication.
 
+Setting an enforced DMARC policy (either *quarantine* or *reject* in the *p* tag) will greatly improve deliverability, and is a necessary step for low volume senders (less than 500 emails per day) who have not established a sending reputation.
+
 ****
 
 ### Setting your DMARC Record
@@ -18,16 +20,16 @@ Mailbox providers send regular DMARC aggregate and forensic reports back to send
 The following table illustrates some of the configuration options you can specify when creating your DMARC record:
 
 
-Tag | Purpose | Example
+Tag | Purpose | Values | Example
 ---------|----------|---------
- v | Protocol version | v=DMARC1
- pct | Percentage of messages subjected to filtering | pct=15
- ruf | Reporting URI for forensic reports | ruf=mailto:authfail@example.com
- rua | Reporting URI of aggregate reports | rua=mailto:aggrep@example.com
- p | Policy for organizational domain | p=quarantine
- sp | Policy for the subdomains of the organizational domain | sp=reject
- adkim | Alignment mode for DKIM | adkim=r
- aspf | Alignment mode for SPF | aspf=s
+ v | Protocol version | DMARC1 | v=DMARC1
+ pct | Percentage of messages subjected to filtering | Number from 0 to 100 | pct=15
+ ruf | Reporting URI for forensic reports | mailto address |ruf=mailto:authfail@example.com
+ rua | Reporting URI of aggregate reports | mailto address | rua=mailto:aggrep@example.com
+ p | Policy for organizational domain | none - no action is taken<br/>quarantine - failing messages are sent to spam folder<br/>reject - failing messsages are not delivered | p=quarantine
+ sp | Policy for the subdomains of the organizational domain |none - no action is taken<br/>quarantine - failing messages are sent to spam folder<br/>reject - failing messsages are not delivered  | sp=reject
+ adkim | Alignment mode for DKIM | r (relaxed) or s (strict) |adkim=r
+ aspf | Alignment mode for SPF | r (relaxed) or s (strict) | aspf=s
 
 
 For example, the following DMARC record will notify postmaster@example.com and send the email to spam (p=quarantine) on a failed check:

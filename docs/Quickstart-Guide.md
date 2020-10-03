@@ -28,6 +28,8 @@ Enter the domain you'd like to verify in the "Domain Name" input. The DNS record
 
 ![Domain Verification](../assets/images/domain_verification.png)<br/>
 
+If you're a low volume sender (less than 500 emails per day) you will need to ensure that your DMARC record is set to enforce mode (a policy of either *quarantine* or *reject*).  [You can read more about the implications of doing that here.](Deliverability/D-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.
+
 Four green checkmarks will be displayed once you've added the records.
 
 <!-- theme: info -->
@@ -45,7 +47,7 @@ Having two separate pools means you can associate different IPs with each type.
 
 For mission-critical emails, you can have a pool of IPs whose reputation needs to remain immaculate to maintain the highest level of deliverability.
 
-For emails that are more likely to be marked as spam, like marketing emails, you can have a set of IPs dedicated just for that. This way any reputation dings in one pool won't affect the reputation of the other.
+For emails that are more likely to be marked as spam, like marketing emails, you can have a set of IPs dedicated just for that. This way reputation dings in one pool won't affect the reputation of the other.
 
 A good configuration would be something like:
 
@@ -95,7 +97,7 @@ SMTP Relay | REST API
 In this guide, we'll send an email using the API via a simple cURL request. You can take a deeper look at setting up the SMTP relay or API here:
 
 - [SMTP relay](Integrations/SMTP-Relay.md)
-- [REST API](https://docs.sendamply.com/docs/api/Amply.v1.yaml/paths/~1email/post)
+- [REST API](https://docs.sendamply.com/docs/api/Mail-Send.v1.yaml)
 
 #### Send an email
 

@@ -139,7 +139,7 @@ Replace the sender (from address **donotreply&#64;YOURDOMAIN.com**) with a sende
 
 ****
 
-### 5) Update rDNS for improved deliverability
+### 5) (Optional) Update rDNS for improved deliverability
 
 Reverse DNS resolution (rDNS) is the querying technique of DNS to determine the domain name associated with an IP address. Email clients favorably look at IP addresses whose rDNS domain name matches the return-path domain.
 

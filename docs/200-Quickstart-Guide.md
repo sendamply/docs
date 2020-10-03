@@ -16,7 +16,7 @@ Follow the guide below to start sending email with Amply! If you haven't created
 
 ### 1) Sender Verification
 
-For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual email address, **sender&#64;somedomain.com**.
+For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual email address, **sender&#64;yourdomain.com**.
 
 This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 
@@ -28,7 +28,7 @@ Enter the domain you'd like to verify in the "Domain Name" input. The DNS record
 
 ![Domain Verification](../assets/images/domain_verification.png)<br/>
 
-If you're a low volume sender (less than 500 emails per day) you will need to ensure that your DMARC record is set to enforce mode (a policy of either *quarantine* or *reject*).  [You can read more about the implications of doing that here.](Deliverability/D-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.
+If you're a low volume sender (less than 500 emails per day) you will need to ensure that your DMARC record is set to enforce mode (a policy of either *quarantine* or *reject*) in order to have good deliverability with email clients like Gmail or Outlook.  [You can read more about the implications of doing that here.](Deliverability/D-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.
 
 Four green checkmarks will be displayed once you've added the records.
 

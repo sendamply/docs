@@ -13,8 +13,8 @@ To begin processing email using Amply's Inbound Parse Webhook, you will have to 
 An MX record is a special type of DNS record that specifies the mail server responsible for accepting emails on behalf of a domain.
 
 1. Navigate to the MX Records page on your hosting provider’s website. If you’re unsure who your hosting or DNS provider is, please contact your website administrator.
-2. Create a new MX record for the fully qualified domain (e.g. inboundtest.yourdomain.com) you want to process incoming email. It is important that this domain is exclusively used to parse your incoming email.
-3. Assign the MX record a priority of 10, and point it to the address: mx.sendamply.net.
+2. Create a new MX record for the fully qualified domain (e.g. *inboundtest.yourdomain.com*) you want to process incoming email. It is important that this domain is exclusively used to parse your incoming email.
+3. Assign the MX record a priority of 10, and point it to the address: *mx.sendamply.net*.
 
 It should look like this:
 
@@ -32,11 +32,11 @@ From this page, specify the subdomain (optional) and the domain of the receiving
 You can set the **Sending Method** to Raw if you would prefer to receive the full MIME message URL encoded in multipart/form-data.
 
 
-Click on "Create" to create the webhook. You can test that this is working by sending an email to the address that you set up (in this example, test@inboundtest.yourdomain.com).
+Click on "Create" to create the webhook. You can test that this is working by sending an email to the address that you set up (in this example, *test@inboundtest.yourdomain.com*).
 
 ****
 
-### Inbound Parse Webhook Params
+### Response Params
 
 #### Default Parameters
 
@@ -101,3 +101,9 @@ attachments | The number of attachments included in the email.
   "to": "test@inboundtest.yourdomain.com"
 }
 ```
+
+***
+
+### Retries
+
+If the destination URL for you webhook times out (takes longer than 5 seconds to receive a request) or returns a non 2xx response code, we will attempt to resend the request up to 3 times, in increments of 24 hours.

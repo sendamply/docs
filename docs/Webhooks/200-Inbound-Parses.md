@@ -1,8 +1,8 @@
-# Inbound Parse Webhooks
+# Inbound Parses
 
-Inbound Parse Webhooks process all incoming email for a domain or subdomain, parse the contents and attachments, and POST json data to a URL that you choose.
+Inbound parse webhooks process all incoming email for a domain or subdomain, parse the contents and attachments, and POST json data to a URL that you choose.
 
-To begin processing email using Amply's Inbound Parse Webhook, you will have to set up an MX record, choose the receiving domain that will be receiving the emails you want to parse, and define the URL where you want to POST your parsed emails.
+To begin processing email using Amply's inbound parse webhook, you will have to set up an MX record, choose the receiving domain that will be receiving the emails you want to parse, and define the URL where you want to POST your parsed emails.
 
 ****
 

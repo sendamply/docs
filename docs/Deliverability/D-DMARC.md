@@ -74,7 +74,7 @@ If you have failures, identify which sources are failing, ensure they are legiti
 
 #### 3) Enforce DMARC
 
-Once you've ensured that all legitimate email sources sending on behalf of your domain have properly set up SPF and DMARC record, then it is safe to set your DMARC policy to *p=quarantine* or *p=reject*.
+Once you've ensured that all legitimate email sources sending on behalf of your domain have properly set up SPF and DKIM records, then it is safe to set your DMARC policy to *p=quarantine* or *p=reject*.
 
 A policy of quarantine means failing emails will be sent to your recipient's spam folder, while reject means they will not be delivered at all.
 

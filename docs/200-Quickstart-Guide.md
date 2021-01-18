@@ -26,7 +26,7 @@ Navigate to the "Verified Domains" page by clicking on the "Mail Settings" tab f
 
 Enter the domain you'd like to verify in the "Domain Name" input. The DNS records you need to provision will be listed next to it:<br/>
 
-![Domain Verification](../assets/images/domain_verification.png)<br/>
+![Domain Verification](../assets/images/verification.png)<br/>
 
 If you're a low volume sender (less than 500 emails per day) you will need to ensure that your DMARC record is set to enforce mode (a policy of either *quarantine* or *reject*) in order to have good deliverability with email clients like Gmail or Outlook.  [You can read more about the implications of doing that here.](Deliverability/D-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.
 

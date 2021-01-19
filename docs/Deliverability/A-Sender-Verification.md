@@ -5,9 +5,11 @@ To protect the security of our customers, we require you to verify the domain or
 1) [Domain Verification](#domain-verification)
 2) [Email Address Verification](#email-address-verification)
 
+Domain Verification is the best way to verify your sender identity because the process requires you to configure your DNS records ([SPF](./B-SPF.md), [DKIM](./C-DKIM.md), and [DMARC](./D-DMARC.md)) which greatly improves the deliverability of your sending infrastructure. It also removes the "_via&nbsp;hostname.smtp.sendamply.net_" message that some email clients append to the "From" field.
+
 <!-- theme: info -->
-> ##### Improve deliverability with Domain Verification
-> Domain Verification is the best way to verify your sender identity because the process requires you to configure your DNS records ([SPF](./B-SPF.md), [DKIM](./C-DKIM.md), and [DMARC](./D-DMARC.md)) which greatly improves the deliverability of your sending infrastructure. It also removes the "_via&nbsp;hostname.smtp.sendamply.net_" message that some email clients append to the "From" field.
+> ##### Improve deliverability with automatic warm-up of verified domains
+> Once you verify your domain, Amply will automatically begin warming it up. We generate positive interactions with your IP and domain so that mailbox providers deliver your email to your users' primary inboxes.
 
 ****
 
@@ -24,7 +26,7 @@ Navigate to the [Verified Domains](https://sendamply.com/home/settings/verified_
 | **amp.yourdomain.com**  | This is used to set the return-path of your email. Additionally, email clients use this for SPF authentication. |
 | **amp._domainkey.yourdomain.com**  | This is used by email clients for DKIM authentication. |
 | **c.amp.yourdomain.com** | This is used for clicktracking and our tracking pixel to collect analytics. |
-| **_dmarc.yourdomain.com** | This is your DMARC policy and instructs email clients how to respond if an email fails SPF or DKIM authentication. We recommend you set your policy to _quarantine_ or _reject_, but you may set it to _none_ if for some reason you are unable to enforce a policy. |
+| **_dmarc.yourdomain.com** | This is your DMARC policy and instructs email clients how to respond if an email fails SPF or DKIM authentication. We recommend you set your policy to _quarantine_ or _reject_, but you may set it to _none_ if you are unable to enforce a policy. |
 
 <!-- theme: info -->
 > We have found that setting a DMARC policy to _quarantine_ or _reject_ significantly improves the deliverability of your email because it increases your sender score with popular email clients like Gmail and Outlook.

@@ -8,7 +8,7 @@ Using Amply can begin as soon as you register your account, and requires just a 
 2) Create an IP Pool
 3) Provision an Access Token
 4) Integrate via SMTP Relay or API
-5) (Optional) Update rDNS for improved deliverability
+5) (Optional) Update rDNS
 
 Follow the guide below to start sending email with Amply! If you haven't created an account yet, you can do so [here.](https://sendamply.com/plans)
 
@@ -45,7 +45,7 @@ Click on "Create", and you have successfully verified your domain!
 
 An IP Pool is a collection of IP addresses. We automatically create a pool called Global when you register your account. The Global pool is every IP that is allocated to your account. We recommend that you create two separate pools for transactional and marketing email.
 
-Having two separate pools means you can associate different IPs with each type.
+Having two separate pools means you can associate different IPs with each type of email that you send.
 
 For mission-critical emails, you can have a pool of IPs whose reputation needs to remain immaculate to maintain the highest level of deliverability.
 
@@ -86,7 +86,7 @@ Take note of the token's secret value; we'll use this in Step 4.
 
 ### 4) Integrate via SMTP Relay or API
 
-There are two ways to send email with Amply: via our [SMTP relay](Integrations/SMTP-Relay.md) or [REST API](https://docs.sendamply.com/docs/api/Amply.v1.yaml/paths/~1email/post). Both are highly effective methods of delivering email so choose whatever is best for your use case.
+There are two ways to send email with Amply: via our [SMTP relay](Integrations/SMTP-Relay.md) or [REST API](https://docs.sendamply.com/docs/api/docs/Introduction.md). Both are highly effective methods of delivering email so choose whatever is best for your use case.
 
 Here are a few things to keep in mind:
 
@@ -100,6 +100,7 @@ In this guide, we'll send an email using the API via a simple cURL request. You 
 
 - [SMTP relay](Integrations/SMTP-Relay.md)
 - [REST API](https://docs.sendamply.com/docs/api/Mail-Send.v1.yaml)
+  - [Javascript SDK](https://github.com/sendamply/amply-js), [Python SDK](https://github.com/sendamply/amply-python), [Ruby SDK](https://github.com/sendamply/amply-ruby), [PHP SDK](https://github.com/sendamply/amply-php), [Go SDK](https://github.com/sendamply/amply-go)
 
 #### Send an email
 
@@ -139,11 +140,13 @@ EOF
 
 Replace the sender (from address **donotreply&#64;YOURDOMAIN.com**) with a sender from a domain you verified in Step 1. In addition, replace the **YOUR_IP_POOL_UUID** with the IP Pool UUID you created in Step 2. Finally, replace **YOUR_ACCESS_TOKEN** with the access token you created in Step 3.
 
+If you don't specify an IP pool, Amply will send from your Global pool.
+
 ****
 
-### 5) (Optional) Update rDNS for improved deliverability
+### 5) (Optional) Update rDNS
 
-Reverse DNS resolution (rDNS) is the querying technique of DNS to determine the domain name associated with an IP address. Email clients favorably look at IP addresses whose rDNS domain name matches the return-path domain.
+Reverse DNS resolution (rDNS) is the querying technique of DNS to determine the domain name associated with an IP address. Email clients look favorably at IP addresses whose rDNS domain name matches the return-path domain.
 
 Since all IP addresses that Amply provisions are dedicated, you are free to update the rDNS record for each of your IPs. You should only do this if you are sending out of one domain. For example, you would NOT want to provision a new rDNS record if you are sending from john&#64;example.com and john&#64;test.com.
 

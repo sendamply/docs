@@ -16,7 +16,7 @@ Follow the guide below to start sending email with Amply! If you haven't created
 
 ### 1) Sender Verification
 
-For the security of our customers, we require the sender (whoever is in the *From* header of your email) to be verified. You can verify either an entire domain, *yourdomain.com* or an individual email address, *sender&#64;yourdomain.com*.
+For the security of our customers, we require the sender (whoever is in the *From* header of your email) to be verified. You can verify either an entire domain, *yourdomain.com* or an individual email address, *sender@your​domain.com*.
 
 This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 

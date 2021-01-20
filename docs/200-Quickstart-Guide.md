@@ -138,7 +138,7 @@ curl https://sendamply.com/api/v1/email \
 EOF
 ```
 
-Replace the sender (from address *donotreply&#64;verifieddomain&#46;com*) with a sender from a domain you verified in Step 1. In addition, replace the *YOUR_IP_POOL_UUID* with the IP Pool UUID you created in Step 2. Finally, replace *YOUR_ACCESS_TOKEN* with the access token you created in Step 3.
+Replace the sender (from address *donotreply\@verifieddomain\.com*) with a sender from a domain you verified in Step 1. In addition, replace the *YOUR_IP_POOL_UUID* with the IP Pool UUID you created in Step 2. Finally, replace *YOUR_ACCESS_TOKEN* with the access token you created in Step 3.
 
 If you don't specify an IP pool, Amply will send from your Global pool.
 

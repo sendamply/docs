@@ -156,4 +156,4 @@ If you choose to update your rDNS, navigate to the IP Address you'd like to upda
 
 ![IP Address](../assets/images/ip_address.png)
 
-In the above example, we set the rDNS domain to `ip1.yourdomain.com`. You don't need to use `ip1`, but you do need to ensure the value is unique, and that you've provisioned an A record with the value of the IP address.
+In the above example, we set the rDNS domain to *ip1.yourdomain.com*. You don't need to use *ip1*, but you do need to ensure the value is unique, and that you've provisioned an A record with the value of the IP address.

@@ -2,7 +2,7 @@
 
 #### Learn how to start sending email with Amply in just a few minutes. 
 
-Using Amply can begin as soon as you register your account, and requires just a few steps:
+You can begin using Amply as soon as you register your account, and requires just a few steps:
 
 1) Sender Verification
 2) Create an IP Pool
@@ -16,7 +16,7 @@ Follow the guide below to start sending email with Amply! If you haven't created
 
 ### 1) Sender Verification
 
-For the security of our customers, we require the sender (whoever is in the `From` header of your email) to be verified. You can verify either an entire domain, **yourdomain.com** or an individual email address, **sender&#64;yourdomain.com**.
+For the security of our customers, we require the sender (whoever is in the *From* header of your email) to be verified. You can verify either an entire domain, *yourdomain.com* or an individual email address, *sender&#64;yourdomain.com*.
 
 This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 
@@ -114,7 +114,7 @@ curl https://sendamply.com/api/v1/email \
     {
       "subject": "Hello, from Amply!",
       "from": {
-        "email": "donotreply@YOURDOMAIN.com",
+        "email": "donotreply@verifieddomain.com",
         "name": "John Smith"
       },
       "content": [
@@ -138,9 +138,11 @@ curl https://sendamply.com/api/v1/email \
 EOF
 ```
 
-Replace the sender (from address **donotreply&#64;YOURDOMAIN.com**) with a sender from a domain you verified in Step 1. In addition, replace the **YOUR_IP_POOL_UUID** with the IP Pool UUID you created in Step 2. Finally, replace **YOUR_ACCESS_TOKEN** with the access token you created in Step 3.
+Replace the sender (from address *donotreply&#64;verifieddomain.com*) with a sender from a domain you verified in Step 1. In addition, replace the *YOUR_IP_POOL_UUID* with the IP Pool UUID you created in Step 2. Finally, replace *YOUR_ACCESS_TOKEN* with the access token you created in Step 3.
 
 If you don't specify an IP pool, Amply will send from your Global pool.
+
+That's it! You're ready to start sending email.
 
 ****
 

@@ -4,7 +4,14 @@ DMARC stands for Domain-based Message Authentication, Reporting and Conformance 
 
 DMARC instructs mailbox providers on how to handle unauthenticated email through a DMARC policy that you create in a DNS TXT record. This removes any guesswork on how mailbox providers should handle messages that fail DMARC authentication. **An enforced DMARC policy is the most important thing you can do to prevent phishing and spoofing attacks.**
 
-In addition, an enforced DMARC policy (either *quarantine* or *reject* in the *p* tag) will greatly improve deliverability, and is a necessary step for low volume senders (less than 500 emails per day) who have not established a sending reputation.
+In addition, an enforced DMARC policy (either *quarantine* or *reject* in the *p* tag) will greatly improve deliverability, and is an important step for low volume senders (less than 200 emails per day) who have not established a sending reputation.
+
+<!-- theme: Danger -->
+> ##### Implications of enforcing DMARC
+> Since DMARC prevents unauthorized sources from sending email on your behalf, you need to ensure that you have authorized any third party providers who send email from your domain.
+>
+>[See below on how to safely do that.](./400-DMARC.md#safely-transitioning-to-an-enforced-dmarc-policy)
+
 
 ****
 

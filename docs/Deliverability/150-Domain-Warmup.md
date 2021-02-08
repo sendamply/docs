@@ -6,7 +6,7 @@ You must have at least one positive reputation factor, and no negative factors t
 
 Since Amply only provisions dedicated IP addresses, your IP reputation starts off as neutral and grows positive as you send email. If you're a low volume sender (< 200 emails/day), you haven't established a domain reputation yet and providers will classify you as a neutral sender.
 
-In order to kickstart your sending infrastructure, you can enable domain warmup for any verified domain that you send from. Amply generates positive interactions with your email and establishes a positive reputation for your domain.
+In order to kickstart your sending infrastructure, enable domain warmup for any verified domain that you send from. Amply generates positive interactions with your email and establishes a positive reputation for your domain.
 
 <!-- theme: success -->
 > This reputation gain from Amply's domain warmup improves deliverability on **ALL** email that you send from your domain, not just the emails through Amply.

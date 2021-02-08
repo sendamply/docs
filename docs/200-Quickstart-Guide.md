@@ -18,7 +18,7 @@ Follow the guide below to start sending email with Amply! If you haven't created
 
 For the security of our customers, we require the sender (whoever is in the *From* header of your email) to be verified. You can verify either an entire domain, *yourdomain.com* or an individual email address, *sender@your​domain.com*.
 
-This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/A-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
+This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/100-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 
 Once your domain has been verified, Amply immediately starts warming up your domain and IP reputation. This warmup process will take approximately one week before maximal deliverability has been reached.
 
@@ -30,7 +30,7 @@ Enter the domain you'd like to verify in the "Domain Name" input. The DNS record
 
 ![Domain Verification](../assets/images/verification.png)<br/>
 
-To maximize deliverability, you should enforce a DMARC policy (a policy of either *quarantine* or *reject*).  [You can read more about the implications of doing that here.](Deliverability/D-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.  If necessary, you can set your policy to *none*, but this is not recommended and may reduce deliverability.
+To maximize deliverability, you should enforce a DMARC policy (a policy of either *quarantine* or *reject*).  [You can read more about the implications of doing that here.](Deliverability/400-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.  If necessary, you can set your policy to *none*, but this is not recommended and may reduce deliverability.
 
 Four green checkmarks will be displayed once you've added the records.
 

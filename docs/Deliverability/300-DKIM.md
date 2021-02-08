@@ -42,7 +42,7 @@ This alignment type requires the DKIM domain to match the Header From domain exa
 
 ### Setting your DKIM Domain
 
-By default, Amply will automatically sign your emails using our hosts. When you [verify your domain](./A-Sender-Verification.md#domain-verification), you'll need to set a DNS record at amp._domainkey.yourdomain.com.
+By default, Amply will automatically sign your emails using our hosts. When you [verify your domain](./100-Sender-Verification.md#domain-verification), you'll need to set a DNS record at amp._domainkey.yourdomain.com.
 
 The record you should add is a simple CNAME and will look something like this:
 

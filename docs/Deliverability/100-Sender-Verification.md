@@ -5,7 +5,7 @@ To protect the security of our customers, we require you to verify the domain or
 1) [Domain Verification](#domain-verification)
 2) [Email Address Verification](#email-address-verification)
 
-Domain Verification is the best way to verify your sender identity because the process requires you to configure your DNS records ([SPF](./B-SPF.md), [DKIM](./C-DKIM.md), and [DMARC](./D-DMARC.md)) which greatly improves the deliverability of your sending infrastructure. It also removes the "_via&nbsp;hostname.smtp.sendamply.net_" message that some email clients append to the "From" field.
+Domain Verification is the best way to verify your sender identity because the process requires you to configure your DNS records ([SPF](./200-SPF.md), [DKIM](./300-DKIM.md), and [DMARC](./400-DMARC.md)) which greatly improves the deliverability of your sending infrastructure. It also removes the "_via&nbsp;hostname.smtp.sendamply.net_" message that some email clients append to the "From" field.
 
 <!-- theme: info -->
 > ##### Improve deliverability with automatic warm-up of verified domains
@@ -15,7 +15,7 @@ Domain Verification is the best way to verify your sender identity because the p
 
 ### Domain Verification
 
-In order to verify your domain, you need to create DNS records that implement [SPF](./B-SPF.md), [DKIM](./C-DKIM.md), and [DMARC](./D-DMARC.md) with the appropriate Amply resources. Once verified, you may send email on behalf of any recipient from your domain (of the format `anyone@yourdomain.com`).
+In order to verify your domain, you need to create DNS records that implement [SPF](./200-SPF.md), [DKIM](./200-DKIM.md), and [DMARC](./400-DMARC.md) with the appropriate Amply resources. Once verified, you may send email on behalf of any recipient from your domain (of the format `anyone@yourdomain.com`).
 
 Navigate to the [Verified Domains](https://sendamply.com/home/settings/verified_domains) page from the Mail Settings tab on your dashboard and click on the "+" button to create a new Verified Domain. You'll be prompted to add the following DNS records for the domain (in this example, `yourdomain.com`):
 
@@ -46,7 +46,7 @@ Once you've provisioned your DNS records, you'll see four green checkmarks indic
 
 ### Email Address Verification
 
-Email Address Verification is the easiest way to verify your sender identity. However, it is more restrictive than verifying your domain because you can only send on behalf of a specific sender (rather than anyone in your domain). In addition, you don't get the benefit of setting up [SPF](./B-SPF.md), [DKIM](./C-DKIM.md), and [DMARC](./D-DMARC.md) as you do with verifying your domain and therefore won't get the improved deliverability like you would with [Domain Verification](#domain-verification).
+Email Address Verification is the easiest way to verify your sender identity. However, it is more restrictive than verifying your domain because you can only send on behalf of a specific sender (rather than anyone in your domain). In addition, you don't get the benefit of setting up [SPF](./200-SPF.md), [DKIM](./300-DKIM.md), and [DMARC](./400-DMARC.md) as you do with verifying your domain and therefore won't get the improved deliverability like you would with [Domain Verification](#domain-verification).
 
 Navigate to the [Verified Email Address](https://sendamply.com/home/settings/verified_email_addresses) from the Mail Settings tab on your dashboard and click on the "+" button to create a new Verified Email Address. You'll be prompted to add the email address you want to verify:
 

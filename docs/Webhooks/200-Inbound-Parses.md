@@ -22,7 +22,7 @@ It should look like this:
 
 #### Step 2: Create the Inbound Parse Webhook in Amply
 
-From the Amply dashboard, click on the Mail Settings tab and then Inbound Parse Webhooks. Click the "+" button to add a new Inbound Parse Webhook.
+From the Amply dashboard, click on the Mail Settings tab and then Webhooks. Click the "+" button to add a new Inbound Parse Webhook.
 
 From this page, specify the subdomain (optional) and the domain of the receiving domain. [This domain must be verified](../Deliverability/100-Sender-Verification.md#domain-verification). All emails sent to this receiving domain will be parsed. Enter the public URL where you would like the parsed data to be POSTed.
 

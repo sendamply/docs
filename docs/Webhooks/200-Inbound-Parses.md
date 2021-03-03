@@ -29,7 +29,7 @@ From this page, specify the subdomain (optional) and the domain of the receiving
 ![Inbound-Parse.md](../../assets/images/inbound_parse_create.png)
 
 
-You can set the **Sending Method** to Raw if you would prefer to receive the full MIME message URL encoded in multipart/form-data.
+You can set the **Sending Method** to Raw if you would prefer to receive the full MIME message.
 
 
 Click on "Create" to create the webhook. You can test that this is working by sending an email to the address that you set up (in this example, *test@inboundtest.yourdomain.com*).

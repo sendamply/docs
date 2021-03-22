@@ -12,12 +12,14 @@ Add the following to your .env file:
 MAIL_DRIVER=smtp
 MAIL_HOST=smtp.sendamply.net
 MAIL_PORT=587
-MAIL_USERNAME=your_amply_uuid
-MAIL_PASSWORD=your_amply_access_token
+MAIL_USERNAME=amply_smtp_username
+MAIL_PASSWORD=amply_access_token
 MAIL_ENCRYPTION=tls
 MAIL_FROM_NAME="John Smith"
 MAIL_FROM_ADDRESS=from@example.com
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 ****
 

@@ -5,8 +5,8 @@
 You can begin using Amply as soon as you register your account, and requires just a few steps:
 
 1) Sender Verification
-2) Create an IP Pool
-3) Provision an Access Token
+2) Create an IP pool
+3) Provision an access token
 4) Integrate via SMTP Relay or API
 5) (Optional) Update rDNS
 
@@ -20,30 +20,26 @@ For the security of our customers, we require the sender (whoever is in the *Fro
 
 This guide goes over verifying an entire domain, but you can check out the [Sender Verification](./Deliverability/100-Sender-Verification.md) article if you'd like more info or if you'd rather verify an individual email address.
 
-Once your domain has been verified, Amply immediately starts warming up your domain and IP reputation. This warmup process will take approximately one week before maximal deliverability has been reached.
-
 #### Verify your domain
 
 Navigate to the "Verified Domains" page by clicking on the "Mail Settings" tab from your dashboard. Click on the "+" sign to add a new Verified Domain.
 
-Enter the domain you'd like to verify in the "Domain Name" input. The DNS records you need to provision will be listed next to it:<br/>
+Enter the domain you'd like to verify in the "Domain Name" input. Once you submit the form, the DNS records you need to provision will be listed next to it:<br/>
 
 ![Domain Verification](../assets/images/verification.png)<br/>
 
-To maximize deliverability, you should enforce a DMARC policy (a policy of either *quarantine* or *reject*).  [You can read more about the implications of doing that here.](Deliverability/400-DMARC.md) If you're unable to enforce DMARC on your main domain, you can send mail from a subdomain (like *mail.yourdomain.com*) and set up the record there.  If necessary, you can set your policy to *none*, but this is not recommended and may reduce deliverability.
+To maximize deliverability, you should enforce a DMARC policy (a policy of either *quarantine* or *reject*). However, only do this if you are absolutely sure that that it is safe. [You can read more about the implications of doing that here.](Deliverability/400-DMARC.md)
 
-Four green checkmarks will be displayed once you've added the records.
+Green checkmarks will be displayed once you've added the records.
 
 <!-- theme: info -->
 > DNS changes may take up to 48 hours to take effect (depending on the TTL of the record).
-
-Click on "Create", and you have successfully verified your domain!
 
 ****
 
 ### 2) Create an IP Pool
 
-An IP Pool is a collection of IP addresses. We automatically create a pool called Global when you register your account. The Global pool is every IP that is allocated to your account. We recommend that you create two separate pools for transactional and marketing email.
+An IP pool is a collection of IP addresses. We automatically create a pool called Global when you register your account. The Global pool is every IP that is allocated to your account. We recommend that you create two separate pools for transactional and marketing email.
 
 Having two separate pools means you can associate different IPs with each type of email that you send.
 
@@ -62,7 +58,7 @@ Pool Name | IPs
 
 #### Create the pool
 
-Navigate to the "IP Pools" page by clicking on the "Mail Settings" tab from your dashboard. Click on the "+" sign to add a new IP Pool. Drag the IPs you want to associate with the pool into the "IP Addresses in IP Pool" column.
+Navigate to the "IP Pools" page by clicking on the "Mail Settings" tab from your dashboard. Click on the "+" sign to add a new IP pool. Drag the IPs you want to associate with the pool into the "IP Addresses in IP Pool" column.
 
 ![IP Pool](../assets/images/ip_pool.png)
 
@@ -72,11 +68,11 @@ Take note of the UUID of the pool you've created; we'll use this in Step 4.
 
 ### 3) Provision an Access Token
 
-Access Tokens are an alternative to passwords for authentication to Amply when using the API or the SMTP relay.
+Access tokens are an alternative to passwords for authentication to Amply when using the API or the SMTP relay.
 
 #### Create the token
 
-Navigate to the "Access Tokens" page by clicking on the "Mail Settings" tab from your dashboard. You can use the existing token, or click on the "+" sign to add a new Access Token.
+Navigate to the "Access Tokens" page by clicking on the "Mail Settings" tab from your dashboard. You can use the existing token, or click on the "+" sign to add a new access token.
 
 ![Access Token](../assets/images/access_token.png)
 
@@ -138,7 +134,7 @@ curl https://sendamply.com/api/v1/email \
 EOF
 ```
 
-Replace the sender (from address *donotreply@verifi​eddomain.com*) with a sender from a domain you verified in Step 1. In addition, replace the *YOUR_IP_POOL_UUID* with the IP Pool UUID you created in Step 2. Finally, replace *YOUR_ACCESS_TOKEN* with the access token you created in Step 3.
+Replace the sender (from address *donotreply@verifi​eddomain.com*) with a sender from a domain you verified in Step 1. In addition, replace the *YOUR_IP_POOL_UUID* with the IP pool UUID you created in Step 2. Finally, replace *YOUR_ACCESS_TOKEN* with the access token you created in Step 3.
 
 If you don't specify an IP pool, Amply will send from your Global pool.
 

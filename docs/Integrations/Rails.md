@@ -14,7 +14,7 @@ You can configure all environments in the config/environment.rb file, or a singl
 Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: 'your_amply_uuid',
+    user_name: 'your_amply_smtp_username',
     password: 'your_amply_access_token',
     domain: 'yourdomain.com',
     address: 'smtp.sendamply.net',
@@ -24,5 +24,7 @@ Rails.application.configure do
   }
 end
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 That's it! All mail sent by your app will be routed through Amply servers.

@@ -8,8 +8,10 @@ Integrating Amply with Sendmail is easy and can be done in just a few minutes.
 Set the authorization credentials in /etc/mail/access:
 
 ```
-AuthInfo:smtp.sendamply.net "U:yourAmplyUUID "P:yourAmplyAccessToken" "M:PLAIN"
+AuthInfo:smtp.sendamply.net "U:yourAmplySMTPUsername "P:yourAmplyAccessToken" "M:PLAIN"
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 ****
 

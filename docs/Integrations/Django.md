@@ -10,11 +10,13 @@ Add the following to settings.py:
 AMPLY_ACCESS_TOKEN = os.getenv('AMPLY_ACCESS_TOKEN')
 
 EMAIL_HOST = 'smtp.sendamply.net'
-EMAIL_HOST_USER = 'AMPLY_UUID'
-EMAIL_HOST_PASSWORD = AMPLY_ACCESS_TOKEN
+EMAIL_HOST_USER = 'AMPLY_SMTP_USERNAME'
+EMAIL_HOST_PASSWORD = 'AMPLY_ACCESS_TOKEN'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 ****
 

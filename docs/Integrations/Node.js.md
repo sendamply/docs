@@ -24,8 +24,8 @@ var transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "your_amply_uuid",
-    pass: "your_amply_access_token"
+    user: "amply_smtp_username",
+    pass: "amply_access_token"
   }
 });
 
@@ -46,6 +46,8 @@ transporter.sendMail(mailOptions, function(error, info){
     console.log('Message sent: ' + info.response);
 });
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 
 

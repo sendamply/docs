@@ -24,8 +24,10 @@ relayhost = [smtp.sendamply.net]:587
 Now you need to specify your credentials in the file /etc/postfix/sasl_passwd (you'll likely need to create it):
 
 ```
-[smtp.sendamply.com]:587 yourAmplyUUID:yourAmplyAccessToken
+[smtp.sendamply.com]:587 yourAmplySMTPUsername:yourAmplyAccessToken
 ```
+
+You can find your SMTP username from your [General Settings](https://sendamply.com/home/settings/general) page.
 
 Next, make sure the file has restricted read and write access only for root, and use the postmap command to update Postfix's hashtables to use this new file:
 

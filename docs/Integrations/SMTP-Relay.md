@@ -12,8 +12,8 @@ Sending email through our SMTP relay is the easiest way for an application to us
   config.action_mailer.smtp_settings = {
     address: 'smtp.sendamply.net',
     port: 587,
-    user_name: '3caac321-f100-4036-a925-a98e7d973669',
-    password: '183f1c14bbe59ec64cdc7021692b880503982184147e20daa4e2813d43a69def',
+    user_name: 'yourAmplySMTPUsername',
+    password: 'yourAmplyAccessToken',
     authentication: :plain,
     enable_starttls_auto: true
   }

@@ -7,10 +7,6 @@ To protect the security of our customers, we require you to verify the domain or
 
 Domain Verification is the best way to verify your sender identity because the process requires you to configure your DNS records ([SPF](./200-SPF.md), [DKIM](./300-DKIM.md), and [DMARC](./400-DMARC.md)) which greatly improves the deliverability of your sending infrastructure. It also removes the "_via&nbsp;hostname.smtp.sendamply.net_" message that some email clients append to the "From" field.
 
-<!-- theme: info -->
-> ##### Improve deliverability with automatic warm-up of verified domains
-> Once you verify your domain, Amply will automatically begin warming it up. We generate positive interactions with your IP and domain so that mailbox providers deliver your email to your users' primary inboxes.
-
 ****
 
 ### Domain Verification

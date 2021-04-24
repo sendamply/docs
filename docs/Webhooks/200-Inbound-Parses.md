@@ -24,7 +24,7 @@ It should look like this:
 
 From the Amply dashboard, click on the Mail Settings tab and then Webhooks. Click the "+" button to add a new Inbound Parse Webhook.
 
-From this page, specify the subdomain (optional) and the domain of the receiving domain. [This domain must be verified](../Deliverability/100-Sender-Verification.md#domain-verification). All emails sent to this receiving domain will be parsed. Enter the public URL where you would like the parsed data to be POSTed.
+From this page, specify the subdomain (optional) and the domain of the receiving domain. [This domain must be verified; however, subdomains of a verified domain do not](../Deliverability/100-Sender-Verification.md#domain-verification). All emails sent to this receiving domain will be parsed. Enter the public URL where you would like the parsed data to be POSTed.
 
 ![Inbound-Parse.md](../../assets/images/inbound_parse_create.png)
 
@@ -43,6 +43,7 @@ Click on "Create" to create the webhook. You can test that this is working by se
 Key | Description
 ---------|----------|---------|
 **attachments** | An array containing attachment objects containing the fields: **name**, **content_type**, **content_length**, **content_id**, **content**. **content** is base64 encoded. If the attachment file size exceeds 50MB, the **content** value will be an empty string.
+**bcc** | Email bcc field, as taken from the message headers.
  **cc** | Email cc field, as taken from the message headers.
  **envelope** | A JSON string containing two fields: **to** and **from**. **To** is an array of recipients and **from** is a string representing the return path for the email.
  **from** | Email sender, as taken from the message headers.
@@ -73,6 +74,7 @@ Key | Description
           }
         ],
         "cc": null,
+        "bcc": null,
         "envelope": {
           "to": [
             "to@yourdomain.com"
@@ -128,9 +130,10 @@ Key | Description
 
 #### Raw Parameters
 
-
+Key | Description
+---------|----------|
+ **bcc** | Email bcc field, as taken from the message headers.
  **cc** | Email cc field, as taken from the message headers.
----------|----------|---------
  **email** | A string containing the email headers, date, body, and attachments.
  **envelope** | A JSON string containing two fields: to and from. To is an array of recipients and from is a string representing the return path for the email.
  **sender_ip** | The sender's IP address.
@@ -147,6 +150,7 @@ Key | Description
       "type": "inbound_parse",
       "data": {
         "cc": null,
+        "bcc": null,
         "email": "Date: Mon, 26 Oct 2020 10:33:39 -0700\r\nFrom: Sender <from@example.com>\r\nTo: to@yourdomain.com\r\nMessage-ID: <abc123@example.com>\r\nSubject: Testing :)\r\nMime-Version: 1.0\r\nContent-Type: multipart/mixed;\r\n boundary=\"--==_mimepart_5f973596a99ad_15c5c23b98c792fb\";\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\n\r\n----==_mimepart_5f973596a99ad_15c5c23b98c792fb\r\nContent-Type: text/plain;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\nHello!\r\n----==_mimepart_5f973596a99ad_15c5c23b98c792fb\r\nContent-Type: text/html;\r\n charset=UTF-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\n<p>Hello!</p>\r\n----==_mimepart_5f973596a99ad_15c5c23b98c792fb--\r\n",
         "envelope": {
           "to": [

@@ -1,6 +1,6 @@
 # Deliverability Strategy
 
-Deliverability strategies add redundancy and improve deliverability for your email.
+Deliverability strategies improve deliverability and add redundancy for your email.
 
 There are several deliverability strategies that you can choose from: auto, dedicated, shared, and custom. Auto is the recommended strategy because it learns from your sending activity in real-time to determine the optimal path to reach your user’s inbox - choosing between a shared or dedicated IP address and taking the guesswork out of scaling your email infrastructure.
 

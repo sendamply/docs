@@ -1,11 +1,13 @@
 # Analytics Overview
 
-Amply's powerful analytics engine automatically extracts insight from the email you send. This data is used for business and email health indicators, and to answer difficult questions like:
+Amply's powerful analytics engine automatically extracts insight from your email. This data is used for business and email health indicators, and to answer difficult questions like:
 
 - How is your business acquiring and engaging users?
 - Where are most of your users engaging from?
 - When is the most common time for **{insert event}**
 - What is the impact of my new feature on **{insert goal event}**
+
+In addition to being accessible from the Amply dashboard, all of your data and visualizations can be queried from our API. We store all engagement data indefinitely, which helps you identify trends for your business.
 
 ### Getting Value from your Data
 
@@ -16,7 +18,8 @@ title: Ops + Engineering Teams
 
 ### Ops + Engineering Teams
  
- - Automatic monitoring of spam data and DNSBLs (IP blacklists) to boost deliverability
+ - [Deliverability strategies](../Deliverability/150-Deliverability-Strategy.md) to add redundancy to your email infrastructure
+ - Real-time monitoring of spam data and DNSBLs (IP blocklists)
  - Centralized logs of email activity and content that is queryable via SQL
  - Easily troubleshoot problems with the full contents and headers of sent emails
 
@@ -28,8 +31,8 @@ title: Security Teams
 ### Security Teams
 
 - Easily investigate phishing cases with an audit trail of all email activity and metadata (stored indefinitely)
-- IP/country whitelisting and blacklisting that notifies you on violations
-- (Coming soon) Anomaly detection to automatically detect possible account compromises 
+- IP/country allowlist and blocklist that notifies you on violations
+- (Coming soon) Anomaly detection to receive notifications on phished and compromised acccounts 
 
 <!--
 type: tab
@@ -48,15 +51,15 @@ title: Sales + Support Teams
 
 ### Sales + Support Teams
 
-- Detailed user profiles are automatically generated and can be tied into your CRM
-- Identify engaged and unengaged users to increase conversions and decrease churns
+- Detailed user profiles with full activity feed that can be connected to your CRM
+- Easily identify engaged and unengaged users to increase conversions and decrease churns
 
 <!-- type: tab-end -->
 
 
 ### Types of Data
 
-Amply collects two types of data around your email: **email activity** and **email contents**. This data is easily queryable in your dashboard by clicking on the SQL page under the Analytics tab.
+Amply collects two types of data: **email activity** and **email contents**. This data is easily queryable in your dashboard by clicking on the SQL page under the Analytics tab.
 
 **email_activities**
 

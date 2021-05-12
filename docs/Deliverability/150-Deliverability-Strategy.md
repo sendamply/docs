@@ -30,4 +30,6 @@ Keep in mind that if you select auto as your deliverability strategy, Amply auto
 
 ### Custom
 
-A custom strategy load balances traffic between Amply dedicated IPs and a custom SMTP server of your choice. This is a great option if you’re converting to Amply from another provider. It also enables you to use multiple service providers to send your emails for added redundancy. With the custom option, you’ll never be sending out of a shared IP. You’ll either be sending out of your Amply dedicated IPs or through another provider.
+A custom strategy load balances traffic between Amply dedicated IPs and a custom SMTP server of your choice. This is a great option if you’re converting to Amply from another provider. Amply determines the correct volume to send from each service in order to maximize your sender reputation, without any extra work from your engineering team.
+
+In addition, a custom strategy lets you leverage multiple service providers to maximize redundancy. With the custom option, you’ll never be sending out of a shared IP. You’ll either be sending out of your Amply dedicated IPs or through another provider.

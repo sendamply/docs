@@ -59,7 +59,7 @@ title: Sales + Support Teams
 
 ### Types of Data
 
-Amply collects two types of data: **email activity** and **email contents**. This data is easily queryable in your dashboard by clicking on the SQL page under the Analytics tab.
+Amply collects two types of data: **email activity** and **email contents**. This data is easily queryable from our API or in your dashboard by clicking on the SQL page under the Analytics tab.
 
 **email_activities**
 

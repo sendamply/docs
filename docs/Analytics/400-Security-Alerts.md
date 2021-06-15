@@ -4,4 +4,4 @@ Security alerts alert your organization if a user engages with your email from a
 
 <!-- theme: info -->
 > ##### Coming Soon:
-> Anamoly based detection that alerts your organization if Amply detects unusual engagement with your email. This proactive approach to phishing helps identify compromised accounts and reduce the amount of damange an attacker can achieve.
+> Anomaly based detection that alerts your organization if Amply detects unusual engagement with your email. This proactive approach to phishing helps identify compromised accounts and reduce the amount of damange an attacker can achieve.

@@ -1,6 +1,6 @@
 # X-SMTPAPI Overview
 
-You can customize the emails you send via SMTP by using different settings that are defined in the X-SMTPAPI header. These filters will override any default settings you have in the "General" page under the Mail Settings tab.
+You can customize the emails you send via SMTP by using different settings that are defined in the X-SMTPAPI header. The value of this header must be JSON. These filters will override any default settings you have in the "General" page under the Mail Settings tab.
 
 ****
 

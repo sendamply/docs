@@ -20,7 +20,7 @@ The analytics setting allows you to control Clicktracking and Email Categories y
     "analytics": {
       "categories": ["Signup Flow"],
       "clicktracking": {
-        "settings": {
+        "enable": {
           "enable": 1
         }
       }
@@ -51,23 +51,14 @@ Substitutions let you create dynamic content for your email. Up to 1,000 substit
 
 The templates setting allows you to associate a template with an email.
 
-The template_uuid can either by the UUID of the template you want to use, or an object whose keys are template UUIDs and values are weights (on a scale of 0 to 1). This allows you to do A/B testing with templates.
+The value can either by the UUID of the template you want to use, an array of template UUID's (which will be randomly picked with equal weight), or an array of objects whose keys are template UUIDs and values are weights (on a scale of 0 to 1). This allows you to do A/B/C/... testing with templates.
 
 | Setting | Type | Example |
 -----|-----|
-| filters\[templates\]\[settings\]\[template_uuid\] | String\|Array\[Object\] | { "d5acb025-aeec-4810-98db-61510cce6af9":&nbsp;0.6, "2dea6e03-6fdc-4302-9102-61b6c278a9a9":&nbsp;0.4 } |
-| filters\[templates\]\[settings\]\[enable\] | Integer\[0\|1] | 1 |
-
+| templates | String\|Array\[Object\] | { "d5acb025-aeec-4810-98db-61510cce6af9":&nbsp;0.6, "2dea6e03-6fdc-4302-9102-61b6c278a9a9":&nbsp;0.4 } |
 ```json
 {
-  "filters": {
-    "templates": {
-      "settings": {
-        "enable": 1,
-        "template_uuid": "d5acb025-aeec-4810-98db-61510cce6af9"
-      }
-    }
-  }
+  "template": "d5acb025-aeec-4810-98db-61510cce6af9"
 }
 ```
 
@@ -75,7 +66,7 @@ The template_uuid can either by the UUID of the template you want to use, or an 
 
 ### Unsubscribe Groups
 
-The unsubscribe group setting allows you to associate an unsubscribe group with an email. If enabled, Amply will include the List-Unsubscribe header, as well as replace all [unsubscribe link/url special variables.](../Templates/A-Templates-Overview.md#special-variables)
+The unsubscribe group setting allows you to associate an unsubscribe group with an email. If enabled, Amply will include the List-Unsubscribe header, as well as replace all [unsubscribe link/url special variables.](../Unsubscribe%20Groups/100-Unsubscribe-Groups-Overview.md)
 
 | Setting | Type | Example |
 -----|-----|
@@ -84,14 +75,7 @@ The unsubscribe group setting allows you to associate an unsubscribe group with 
 
 ```json
 {
-  "filters": {
-    "unsubscribe_groups": {
-      "settings": {
-        "enable": 1,
-        "unsubscribe_group_uuid": "c4a49083-8005-4f29-9a58-b4b9d7542f6d"
-      }
-    }
-  }
+  "unsubscribe_group_uuid": "65ac2025-3eec-4d10-98db-61510cceaaf9"
 }
 ```
 

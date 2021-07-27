@@ -10,20 +10,15 @@ The analytics setting allows you to control Clicktracking and Email Categories y
 
 | Setting | Type | Example |
 -----|-----|
-| filters\[analytics\]\[categories\] | Array\[String\] | \["Signup Flow", "User Registration"\] |
-| filters\[analytics\]\[clicktracking\]\[settings\]\[enable\] | Integer\[0\|1] | 1 |
+| analytics\[categories\] | Array\[String\] | \["Signup Flow", "User Registration"\] |
+| analytics\[clicktracking\] | Boolean\[true\|false] | false |
 
 
 ```json
 {
-  "filters": {
-    "analytics": {
-      "categories": ["Signup Flow"],
-      "clicktracking": {
-        "enable": {
-          "enable": 1
-        }
-      }
+  "analytics": {
+    "categories": ["Signup Flow"],
+    "clicktracking": true
     }
   }
 }
@@ -66,12 +61,11 @@ The value can either by the UUID of the template you want to use, an array of te
 
 ### Unsubscribe Groups
 
-The unsubscribe group setting allows you to associate an unsubscribe group with an email. If enabled, Amply will include the List-Unsubscribe header, as well as replace all [unsubscribe link/url special variables.](../Unsubscribe%20Groups/100-Unsubscribe-Groups-Overview.md)
+The unsubscribe group setting allows you to associate an unsubscribe group with an email. If enabled, Amply will include the List-Unsubscribe header, as well as replace all [unsubscribe link/url special variables](../Unsubscribe%20Groups/100-Unsubscribe-Groups-Overview.md) in the email body.
 
 | Setting | Type | Example |
 -----|-----|
-| filters\[unsubscribes\]\[settings\]\[unsubscribe_group_uuid\] | String | c4a49083-8005-4f29-9a58-b4b9d7542f6d |
-| filters\[unsubscribes\]\[settings\]\[enable\] | Integer\[0\|1] | 1 |
+| unsubscribe_group_uuid | String | c4a49083-8005-4f29-9a58-b4b9d7542f6d |
 
 ```json
 {
